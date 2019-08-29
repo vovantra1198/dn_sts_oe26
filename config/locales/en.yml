@@ -1,3 +1,16 @@
 en:
-  layout:
-    title: "Framgia Traing System"
+  layouts:
+    application:
+      title: "Framgia Training System"
+    header:
+      home: "Home"
+      login: "Login"
+      register: "Register"
+    footer:
+      title_footer: "© 2019 By Sun* - Human Development Division - Education Section - All rights reserved."
+  static_pages:
+    home:
+      all_course: "All Courses"
+      web_designer: "Web Designer"
+      content_course: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum."
+

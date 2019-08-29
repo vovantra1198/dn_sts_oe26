@@ -1,3 +1,16 @@
-en:
-  layout:
-    base_title: "Hệ thống đào tạo Framgia"
+vi:
+  layouts:
+    application:
+      title: "Hệ thống đào tạo Framgia"
+    header:
+      home: "Trang Chủ"
+      login: "Đăng Nhập"
+      register: "Đăng Kí"
+    footer:
+      title_footer: "© 2019 By Sun * - Bộ phận Phát triển Con người - Bộ phận Giáo dục - Bảo lưu mọi quyền."
+  static_pages:
+    home:
+      all_course: "Tất Cả Khóa Học"
+      web_designer: "Thiết Kế Web"
+      content_course: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum."
+
