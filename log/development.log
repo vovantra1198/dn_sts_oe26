@@ -1,0 +1,9 @@
+Started GET "/" for ::1 at 2019-08-29 08:32:25 +0700
+  [1m[35m (8.4ms)[0m  [1m[35mSET NAMES utf8,  @@SESSION.sql_mode = CONCAT(CONCAT(@@sql_mode, ',STRICT_ALL_TABLES'), ',NO_AUTO_VALUE_ON_ZERO'),  @@SESSION.sql_auto_is_null = 0, @@SESSION.wait_timeout = 2147483[0m
+  ↳ /home/kai/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/kai/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/kai/.rvm/gems/ruby-2.5.1/gems/railties-5.2.3/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.0ms)
+
+
