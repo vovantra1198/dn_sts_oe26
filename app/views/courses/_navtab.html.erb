@@ -2,24 +2,69 @@
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item">
-      <%= link_to t(".subject"), "#subject", class: "nav-link active", data: { toggle: "tab"} %>
+      <%= link_to t(".subjects"), "#subject", class: "nav-link active", data: { toggle: "tab"} %>
     </li>
     <li class="nav-item">
-      <%= link_to t(".task"), "#task", class: "nav-link ", data: { toggle: "tab"} %>
+      <%= link_to t(".report"), "#report", class: "nav-link ", data: { toggle: "tab"} %>
     </li>
     <li class="nav-item">
-      <%= link_to t(".member"), courses_path, class: "nav-link ", data: { toggle: "tab"} %>
+      <%= link_to t(".member"), "#member", class: "nav-link ", data: { toggle: "tab"} %>
     </li>
     <li class="nav-item">
-      <%= link_to t(".doccument"), courses_path, class: "nav-link ", data: { toggle: "tab"} %>
+      <%= link_to t(".doccument"), "#doccument", class: "nav-link ", data: { toggle: "tab"} %>
     </li>
   </ul>
-</div>
-<div class="tab-content">
+  <div class="tab-content">
     <div id="subject" class="container tab-pane active"><br>
       <%= render "courses/timeline" %>
     </div>
-    <div id="task" class="container tab-pane fade"><br>
+    <div id="report" class="container tab-pane fade"><br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col"> <%= t ".subject" %> </th>
+            <th scope="col"> <%= t ".name_task" %> </th>
+            <th scope="col"> <%= t ".file" %> </th>
+            <th scope="col"> <%= t ".status" %> </th>
+          </tr>
+        </thead>
+        <% count = 0 %>
+        <% @user_couser_tasks.each do |user_course_task| %>
+          <tbody>
+            <tr>
+              <td> <%= count += 1 %> </td>
+              <td> <%= user_course_task.subject_name %> </td>
+              <td> <%= user_course_task.task_title %> </td>
+              <td> <%= link_to user_course_task.file_excel_file_name, user_course_task.file_excel.url %> </td>
+              <td> <%=user_course_task.status %> </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+    <div id="member" class="container tab-pane fade"><br>
+      <h3> <%= t ".member" %> (<%= @user_courses.size %>) </h3>
+      <div class="row">
+        <%= t ".trainer" %>:
+        <% @user_courses.each do |user_course| %>
+          <% if user_course.user.trainer? %>
+            <div class="col-sm-2">
+              <%= link_to user_course.user.name, user_path(id: user_course.user.id)%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="row">
+        <%= t ".trainee" %>:
+        <% @user_courses.each do |user_course| %>
+          <% if user_course.user.trainee? %>
+            <div class="col-sm-2">
+              <%= link_to user_course.user.name, user_path(id: user_course.user.id)%>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

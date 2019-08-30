@@ -191,7 +191,6 @@ a, a:hover, a:focus {
 ul ul a {
   font-size: 0.9em !important;
   padding-left: 30px !important;
-  background: $a6d7;
 }
 .timeline_course ul.timeline {
   list-style-type: none;
@@ -225,11 +224,25 @@ ul ul a {
 }
 .cardview {
   width: 100%;
+  float: left;
 }
 .card {
-  width: 33.3%;
+  width: 100%;
 }
 .card img {
   width: 80%;
   margin: auto;
+}
+.view {
+  width: 33%
+}
+.navuser {
+  width: 66%;
+  float: left;
+}
+.view1 {
+  text-align: center;
+}
+.message{
+  color: red;
 }

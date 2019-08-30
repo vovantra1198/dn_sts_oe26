@@ -14,6 +14,8 @@
 /yarn-error.log
 
 /public/assets
+public/policy_documents/*
+public/system/user_course_tasks/*
 .byebug_history
 /config/database.yml
 /.bundle

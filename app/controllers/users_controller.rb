@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :load_user, only: [:show, :edit, :update]
+
+  def show; end
+
   def new
     @user = User.new
   end
@@ -15,6 +19,17 @@ class UsersController < ApplicationController
       render :confirm_email
     else
       render :new
+    end
+  end
+
+  def edit; end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:success] = t "users.show.update_success"
+      redirect_to @user
+    else
+      render :edit
     end
   end
 
@@ -50,5 +65,12 @@ class UsersController < ApplicationController
 
   def code_params
     params.require(:confirm).permit :code
+  end
+
+  def load_user
+    @user = User.find_by(id: params[:id])
+    return if @user
+    flash["danger"] = t "courses.notfound.notfound"
+    redirect_to notfound_path
   end
 end
