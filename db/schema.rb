@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_29_040711) do
+ActiveRecord::Schema.define(version: 2019_08_30_124439) do
 
   create_table "course_subject_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_subject_id"
@@ -51,7 +51,6 @@ ActiveRecord::Schema.define(version: 2019_08_29_040711) do
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "content"
-    t.integer "location", default: 0
     t.date "start_date"
     t.integer "status", default: 0
     t.datetime "created_at", null: false
@@ -113,13 +112,11 @@ ActiveRecord::Schema.define(version: 2019_08_29_040711) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.date "birthday"
-    t.string "company"
     t.string "gradution"
     t.string "university"
     t.string "address"
+    t.integer "sex", default: 1
     t.integer "role", default: 0
-    t.integer "gender", default: 0
     t.boolean "joined", default: false
     t.boolean "activated", default: false
     t.datetime "created_at", null: false
