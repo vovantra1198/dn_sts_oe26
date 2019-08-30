@@ -1,0 +1,6 @@
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <%= link_to t(".home"), courses_path %> </li>
+    <li class="breadcrumb-item active" aria-current="page"> <%= yield(:title_page) %> </li>
+  </ol>
+</nav>

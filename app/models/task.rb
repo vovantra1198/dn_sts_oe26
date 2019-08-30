@@ -5,5 +5,5 @@ class Task < ApplicationRecord
   validates :title, presence: true,
     length: {maximum: Settings.task.max_length_title}
   validates :content, presence: true,
-    length: {maximum: Settings.task.max_length_details}
+    length: {maximum: Settings.task.max_length_content}
 end

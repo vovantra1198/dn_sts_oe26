@@ -5,6 +5,14 @@ $yellow: #f9850f;
 $green: #8fb800;
 $blue: #2fcea5;
 $black-grey: #444;
+$black-grey-bk: #343a40;
+$xam: #f6faf2;
+$fa: #fafafa;
+$three-nice: #999;
+$a47b: #47748b;
+$a73d: #7386D5;
+$a6d7: #6d7fcc;
+$a22c: #22c0e8;
 
 .main-timeline{position:relative}
 .main-timeline:before{content:"";width:5px;height:100%;border-radius:20px;margin:0 auto;background:#242922;position:absolute;top:0;left:0;right:0}
@@ -83,7 +91,145 @@ $black-grey: #444;
 .btn-menu button {
   width:90%;
 }
-
 .messages_false h3 {
   color: red;
+}
+#content_page {
+  width: 100%;
+  margin: 10px 10px;
+}
+.nav_tab {
+  margin: 10px 0;
+}
+.sidebar-header img {
+  width: 50px;
+  background: $xam;
+  border-radius: 50%;
+}
+.wrapper {
+  display: flex;
+  align-items: stretch;
+}
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+}
+#sidebar.active {
+  margin-left: -250px;
+}
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+}
+a[data-toggle="collapse"] {
+  position: relative;
+}
+.dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -250px;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+}
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: $fa;
+}
+p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1em;
+  font-weight: 300;
+  line-height: 1.7em;
+  color: $three-nice;
+}
+a, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+#sidebar {
+  background: $black-grey-bk;
+  color: $while;
+  transition: all 0.3s;
+}
+#sidebar .sidebar-header {
+  padding: 20px;
+  background: black;
+}
+#sidebar ul.components {
+  padding: 20px 0;
+  border-bottom: 1px solid $a47b;
+}
+#sidebar ul p {
+  color: $while;
+  padding: 10px;
+}
+#sidebar ul li a {
+  padding: 10px;
+  font-size: 1.1em;
+  display: block;
+}
+#sidebar ul li a:hover {
+  color: $a73d;
+  background: $while;
+}
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+  color: $while;
+  background: $a6d7;
+}
+ul ul a {
+  font-size: 0.9em !important;
+  padding-left: 30px !important;
+  background: $a6d7;
+}
+.timeline_course ul.timeline {
+  list-style-type: none;
+  position: relative;
+}
+.timeline_course ul.timeline:before {
+  content: ' ';
+  background: #d4d9df;
+  display: inline-block;
+  position: absolute;
+  left: 29px;
+  width: 2px;
+  height: 100%;
+  z-index: 400;
+}
+.timeline_course ul.timeline > li {
+  margin: 20px 0;
+  padding-left: 20px;
+}
+.timeline_course ul.timeline > li:before {
+  content: ' ';
+  background: white;
+  display: inline-block;
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid $a22c;
+  left: 20px;
+  width: 20px;
+  height: 20px;
+  z-index: 400;
+}
+.cardview {
+  width: 100%;
+}
+.card {
+  width: 33.3%;
+}
+.card img {
+  width: 80%;
+  margin: auto;
 }

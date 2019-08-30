@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
     resources :users, only: [:new, :create]
   end
+  resources :courses, only: [:index, :show]
   post "/login", to: "sessions#create"
+  get "/notfound", to: "courses#notfound"
   delete "/logout", to: "sessions#destroy"
 end
