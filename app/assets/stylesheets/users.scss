@@ -1,0 +1,45 @@
+//form
+$silver: #f7f9fc;
+$gray-normal: #dfe7f1;
+$white: #ffffff;
+$red: #f52f2f;
+$black-so: #5a5e6c;
+
+.field_with_errors input {
+    border: 1px solid red;
+}
+.form-container {
+  max-width: 1000px;
+  max-height: auto;
+  width: 90%;
+  margin: 1rem auto;
+  box-shadow: 2px 2px 5px grba(0,0,0,0.1);
+  border: 2px solid $red;
+}
+.row {
+  margin: 20px;
+}
+
+.form-container .form {
+  margin: 1rem 1rem auto;
+  width: 400px;
+  background-color: $white;
+  padding: 40px 60px;
+  color: $black-so;
+}
+.form-control {
+  background: $silver;
+  border: none;
+  border-bottom: 1px solid $gray-normal;
+  border-radius: 10;
+  box-shadow: none;
+  outline: none;
+  color: inherit;
+  text-indent: 6px;
+  height: 40px;
+  margin-bottom: 1rem;
+}
+
+.form-container .form p {
+  color: red;
+}
