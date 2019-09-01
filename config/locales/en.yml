@@ -19,7 +19,7 @@ en:
       btn_create: "Create"
       title_create_account: "Create an account"
     create:
-      messages_wait_active: "Your account still archive! Waiting for Admin active it!"
+      check_mail_code: "Check mail to get code confirm!"
     form:
       place_name: Name
       place_email: Email
@@ -35,3 +35,15 @@ en:
       place_address: Address
       radio_name_trainee: Trainee
       radio_name_trainer: Trainer
+    check_code:
+      messages_wait_active: "Your account still archive! Waiting for Admin active it!"
+      code_not_confirm: "Code isn't confirm!"
+      something_wrong: "Something's wrong!"
+      code_expire: "Code is expire! Please create again!"
+  user_mailer:
+    confirm_email:
+      title: "Framgia Trainning System"
+      content: "Hi! This is the confirm your account!"
+      subject: "Confirm account"
+
+

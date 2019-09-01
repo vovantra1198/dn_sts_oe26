@@ -9,7 +9,7 @@
     <%= f.email_field :email, class: "form-control",
       placeholder: t(".place_email") %>
 
-    <p><%= @error.full_messages_for(:password),join(", ") %></p>
+    <p><%= @error.full_messages_for(:password).join(", ") %></p>
     <%= f.password_field :password, class: "form-control",
       placeholder: t(".place_password") %>
 
