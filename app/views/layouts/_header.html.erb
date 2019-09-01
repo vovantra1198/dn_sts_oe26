@@ -23,6 +23,11 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item btn-menu">
+            <%= hidden_field_tag "sub_user", get_sub_user %>
+            <% @notifications = Notification.notification_list(get_sub_user).order_by %>
+            <%= render "notifications/notification_center", notifications: @notifications %>
+          </li>
         <% else %>
         <li class="nav-item btn-menu">
           <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"> <%= t ".login" %> </button>
@@ -35,9 +40,9 @@
     </div>
   </div>
   <div>
-  <%= link_to "en", locale: :en %>
-  <%= link_to "vi", locale: :vi %>
-</div>
+    <%= link_to "en", locale: :en %>
+    <%= link_to "vi", locale: :vi %>
+  </div>
 </nav>
 
 
