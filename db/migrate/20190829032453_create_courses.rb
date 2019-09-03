@@ -3,6 +3,7 @@ class CreateCourses < ActiveRecord::Migration[5.2]
     create_table :courses do |t|
       t.string :name
       t.text :content
+      t.integer :location, default: 0
       t.date :start_date
       t.integer :status, default: 0
 

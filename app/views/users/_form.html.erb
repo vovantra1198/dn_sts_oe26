@@ -1,0 +1,54 @@
+<%= form_for(@user, :html => {class: "form col justify-content-center"}) do |f| %>
+  <% @error = f.object.errors %>
+  <div class="col justify-content-center">
+    <p><%= @error.full_messages_for(:name).join(", ") %></p>
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t(".place_name") %>
+
+    <p><%= @error.full_messages_for(:email).join(", ") %></p>
+    <%= f.email_field :email, class: "form-control",
+      placeholder: t(".place_email") %>
+
+    <p><%= @error.full_messages_for(:password),join(", ") %></p>
+    <%= f.password_field :password, class: "form-control",
+      placeholder: t(".place_password") %>
+
+    <p><%= @error.full_messages_for(:password_confirmation).join(", ") %></p>
+    <%= f.password_field :password_confirmation, class: "form-control",
+      placeholder: t(".place_password_repeate") %>
+
+    <div class="col">
+      <%= f.radio_button :gender, User.genders.key(User.genders[:male]),
+        class: "col-sm-1" %>
+      <%= t ".radio_name_male" %>
+      <%= f.radio_button :gender, User.genders.key(User.genders[:female]), class: "col-sm-1" %>
+      <%= t ".radio_name_female" %>
+      <%= f.radio_button :gender, User.genders.key(User.genders[:other]), class: "col-sm-1" %>
+      <%= t ".radio_name_other" %>
+    </div>
+
+    <%= f.label :lb_birthday, t(".lb_birthday"), class: "col" %>
+    <%= f.date_field :birthday, class: "form-control" %>
+
+    <%= f.text_field :company, class: "form-control",
+      placeholder: t(".place_company") %>
+
+    <%= f.text_field :university, class: "form-control",
+      placeholder: t(".place_university") %>
+
+    <%= f.text_field :gradution, class: "form-control",
+      placeholder: t(".place_gradution") %>
+
+    <%= f.text_field :address, class: "form-control",
+      placeholder: t(".place_address") %>
+
+    <div class="col">
+      <%= f.radio_button :role, User.roles.key(User.roles[:trainee]), class: "col-sm-1" %>
+      <%= t ".radio_name_trainee" %>
+      <%= f.radio_button :role, User.roles.key(User.roles[:trainer]), class: "col-sm-1" %>
+      <%= t ".radio_name_trainer" %>
+    </div>
+
+    <%= f.submit yield(:btn_submit), class: "btn btn-success col-sm-4 float-right" %>
+  </div>
+<% end %>

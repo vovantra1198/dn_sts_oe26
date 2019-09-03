@@ -1,0 +1,15 @@
+
+<% provide(:title, t(".title")) %>
+<% provide(:btn_submit, t(".btn_create")) %>
+<div class="row">
+  <div class="form-container">
+    <h2 class="row justify-content-center">
+      <%= t ".title_create_account" %>
+    </h2>
+    <div class="row align-items-center">
+      <%= render "form" %>
+      <%= image_tag("sun.png", class: "col justify-content-center") %>
+    </div>
+
+  </div>
+</div>

@@ -13,4 +13,25 @@ en:
       all_course: "All Courses"
       web_designer: "Web Designer"
       content_course: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum."
-
+  users:
+    new:
+      title: "Sign up"
+      btn_create: "Create"
+      title_create_account: "Create an account"
+    create:
+      messages_wait_active: "Your account still archive! Waiting for Admin active it!"
+    form:
+      place_name: Name
+      place_email: Email
+      place_password: Password
+      place_password_repeate: "Password (repeate)"
+      radio_name_male: Male
+      radio_name_female: Female
+      radio_name_other: Other...
+      lb_birthday: Birthday
+      place_company: Company
+      place_university: University
+      place_gradution: Gradution
+      place_address: Address
+      radio_name_trainee: Trainee
+      radio_name_trainer: Trainer
