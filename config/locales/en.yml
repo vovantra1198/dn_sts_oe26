@@ -1,4 +1,7 @@
 en:
+  notification:
+    one: "The form contains 1 error"
+    other: "The form contains %{count} errors"
   layouts:
     application:
       title: "Framgia Training System"
@@ -6,6 +9,10 @@ en:
       home: "Home"
       login: "Login"
       register: "Register"
+      logout: "Log out"
+      profile: "Profile"
+      settings: "Settings"
+      account: "Account"
     footer:
       title_footer: "© 2019 By Sun* - Human Development Division - Education Section - All rights reserved."
   static_pages:
