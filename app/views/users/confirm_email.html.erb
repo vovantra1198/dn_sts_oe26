@@ -1,0 +1,5 @@
+<%= form_for(:confirm, url: confirm_email_path) do |f| %>
+  <%= f.text_field :code, class: "form-control", type: "number",
+    placeholder: "Code confirm" %>
+  <%= f.submit "Confirm", class: "btn btn-success col-sm-4 float-right" %>
+<% end %>
