@@ -3,6 +3,8 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show; end
+
   def create
     @user = User.new user_params
     if @user.valid?
@@ -31,6 +33,7 @@ class UsersController < ApplicationController
       redirect_to root_url
       session.delete(:code)
       session.delete(:user_params)
+      create_notify(t(".notify_new_create_account"), "#", 0)
     else
       flash.now[:danger] = t ".code_not_confirm"
       render :confirm_email

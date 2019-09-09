@@ -67,10 +67,9 @@ en:
       code_not_confirm: "Code isn't confirm!"
       something_wrong: "Something's wrong!"
       code_expire: "Code is expire! Please create again!"
+      notify_new_create_account: "Have a new account is created and waiting for activation of you!"
   user_mailer:
     confirm_email:
       title: "Framgia Trainning System"
       content: "Hi! This is the confirm your account!"
       subject: "Confirm account"
-
-

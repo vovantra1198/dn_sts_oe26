@@ -1,0 +1,115 @@
+$white: #fff;
+$white-blue: #989494;
+$black-border: #dddddd;
+$gray: #f0f0f0;
+$white-gray: #e9eaed;
+$d44: #d44e03;
+ul.notificator {
+  display: inline-block;
+  float:right;
+  margin: 0;
+  li {
+    position: relative;
+    list-style: none;
+    i {
+      color: $white;
+    }
+  }
+}
+
+#notification-new-noti {
+  position: absolute;
+  top: -2px;
+  left: 25px;
+
+  background-color: rgb(212, 78, 3);
+  color: $white;
+  border-radius: 3px;
+  padding: 1px 3px;
+  font: 8px Verdana;
+}
+
+ul #notificationList{
+  display: table;
+  a {
+    font-size: 14px;
+    span {
+      float: right ;
+      margin-right: 5px;
+      margin-bottom: 3px;
+      margin-top: 1px;
+      color: $white-blue;
+      font-size: 11px;
+      display: block;
+    }
+    li {
+      position:relative;
+      border-bottom: $black-border 1px solid;
+      margin: 10px 0 0 0;
+      display: table-row;
+      height-max: 50px;
+    }
+  }
+}
+#notificationsBody  ul {
+  padding-left: 0;
+  width: 100%
+}
+
+#notificationContainer {
+  background-color: $white;
+  border: 1px solid rgba(100, 100, 100, .4);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: visible;
+  position: absolute;
+  top: 70px;
+  margin-left: -253px;
+  width: 300px;
+  z-index: 10;
+  display: none;
+}
+
+
+#notificationContainer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  color: transparent;
+  border: 10px solid black;
+  border-color: transparent transparent white;
+  margin-top: -20px;
+  margin-left: 258px;
+}
+
+#notificationTitle {
+  font-weight: bold;
+  padding: 8px;
+  font-size: 13px;
+  background-color: $gray;
+  position: absolute;
+  z-index: 1;
+  width: 284px;
+  border-bottom: 1px solid #d44e03;
+  color: $d44;
+}
+
+#notificationsBody {
+  padding: 3px 0px 0px 0px !important;
+  min-height:300px;
+  max-height:300px;
+  overflow: auto;
+  position: relative;
+  width: 100%;
+}
+
+
+#notificationFooter {
+  background-color: $white-gray;
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 12px;
+  border-top: 1px solid $gray;
+}

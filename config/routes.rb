@@ -3,10 +3,14 @@ Rails.application.routes.draw do
     root "static_pages#home"
 
     get "/signup", to: "users#new"
+    post "/login", to: "sessions#create"
+    delete "/logout", to: "sessions#destroy"
     get "/confirm_email", to: "users#confirm_email"
     post "/confirm_email", to: "users#check_code"
 
-    resources :users, only: [:new, :create]
+    resources :users, only: [:new, :create, :show]
+    resources :notifications, only: [:new, :create, :detroy]
+    mount ActionCable.server => "/cable"
   end
   resources :courses, only: [:index, :show]
   post "/login", to: "sessions#create"

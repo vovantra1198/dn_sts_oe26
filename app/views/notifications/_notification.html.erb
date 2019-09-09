@@ -1,0 +1,6 @@
+<%= link_to notification.url.html_safe, class: "list-group-item list-group-item-action" do %>
+  <li class="row justify-content-center">
+    <%= notification.title %>
+    <span class="row"> <%= notification.created_at.strftime("%d %b. %Y") %></span>
+  </li>
+<% end %>
