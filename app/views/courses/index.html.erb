@@ -1,0 +1,12 @@
+<% provide :title, t(".title") %>
+<% provide :title_page, t(".title") %>
+ <div class="wrapper">
+  <%= render "courses/sidebar" %>
+  <!-- Page Content -->
+  <div id="content_page">
+    <%= render "courses/breadcrumd" %>
+    <div class="cardview">
+      <%= render partial: "courses/cardview", collection: @course_ids, as: :course_id %>
+    </div>
+  </div>
+</div>

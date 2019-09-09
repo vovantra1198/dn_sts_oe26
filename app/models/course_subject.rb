@@ -7,4 +7,5 @@ class CourseSubject < ApplicationRecord
   enum status: [:no_active, :running, :finish]
   validates :course_id, presence: true
   validates :subject_id, presence: true
+  scope :sort_by_order, ->{order :order}
 end

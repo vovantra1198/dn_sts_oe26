@@ -2,6 +2,26 @@ en:
   notification:
     one: "The form contains 1 error"
     other: "The form contains %{count} errors"
+  courses:
+    notfound:
+      notfound: "Not Found"
+    breadcrumd:
+      home: "Home"
+    sidebar:
+      myif: "My Information"
+      myspace: "My space"
+      mycourse: "My course"
+    navtab:
+      subject: "Subjects"
+      task: "Tasks"
+      member: "Members"
+      doccument: "Doccuments"
+    index:
+      title: "My Courses"
+    cardview:
+      button_show: "Show"
+    show:
+      title: "Show course"
   layouts:
     application:
       title: "Framgia Training System"

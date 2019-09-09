@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     respond_to do |f|
       if user&.authenticate(params[:session][:password])
         log_in user
-        f.html{redirect_to root_path}
+        f.html{redirect_to courses_path}
       else
         f.js {}
       end

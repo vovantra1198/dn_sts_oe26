@@ -1,0 +1,8 @@
+<ul class="timeline">
+  <li>
+    <%= link_to load_name(sub.subject.name, sub.subject.duration_default),"#" %>
+    <p class="float-right"> <%= @course.start_date.next_day(sub.subject.duration_default) %> </p>
+    <h5> <%= sub.subject.details %> </h5>
+    <%= render partial: "courses/task", collection: sub.subject.tasks, as: :task %>
+  </li>
+</ul>
