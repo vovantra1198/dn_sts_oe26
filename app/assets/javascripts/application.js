@@ -16,4 +16,5 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
-//= require notifications_center
+//= require cable.js
+//= require notifications_center.js

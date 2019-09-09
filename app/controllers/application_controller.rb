@@ -1,12 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
+  include NotificationsHelper
   protect_from_forgery with: :exception
   before_action :set_locale
-
-  def create_notify title, url, recipient_id
-    Notification.create!(title: title,
-      url: url, recipient_id: recipient_id)
-  end
 
   private
 

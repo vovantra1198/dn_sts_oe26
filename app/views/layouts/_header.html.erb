@@ -25,8 +25,8 @@
           </li>
           <li class="nav-item btn-menu">
             <%= hidden_field_tag "sub_user", get_sub_user %>
-            <% @notifications = Notification.notification_list(get_sub_user).order_by %>
-            <%= render "notifications/notification_center", notifications: @notifications %>
+            <%= render "notifications/notification_center",
+              notifications: get_notification %>
           </li>
         <% else %>
         <li class="nav-item btn-menu">
