@@ -7,6 +7,24 @@ en:
       submit: "Submitted"
     sidebarmember:
       all_title: "All title"
+  admin:
+    users:
+      index:
+        title: "Users Manager"
+        not_access: "You don't have access in this function"
+      destroy:
+        delete_success: "Successfully delete user %{name}"
+        delete_fail: "Failed delete user %{name}"
+      update:
+        active_success: "Successfully active user %{name}"
+        active_fail: "Failed active user %{name}"
+      user:
+        birthday: "Birthday: %{day}"
+        university: "University: %{university}"
+        btn_active: Active
+        btn_delete: Delete
+        confirm_delete: Delete user %{name}, Are you sure?
+        confirm_active: Acitve user %{name}, Are you sure?
   notification:
     one: "The form contains 1 error"
     other: "The form contains %{count} errors"
@@ -39,6 +57,16 @@ en:
   layouts:
     application:
       title: "Framgia Training System"
+    admin_header:
+      users: Users
+      courses: Courses
+      subject&task: "Subjects & Tasks"
+      all: All
+      acticated: Acticated
+      archive: Archive
+      completed: Completed
+      running: Running
+      search: Search
     header:
       home: "Home"
       login: "Login"

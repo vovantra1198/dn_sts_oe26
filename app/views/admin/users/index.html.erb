@@ -1,0 +1,13 @@
+<% provide(:title, t(".title")) %>
+<div class="container">
+  <table class="center">
+    <% @users.in_groups_of(Settings.cols, false) do |row_users| %>
+      <tr>
+        <% for user in row_users %>
+          <td><%= render user %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate %>
+</div>

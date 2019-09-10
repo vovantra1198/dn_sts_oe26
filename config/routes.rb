@@ -7,7 +7,18 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     get "/confirm_email", to: "users#confirm_email"
     post "/confirm_email", to: "users#check_code"
-    resources :notifications, only: [:new, :create, :detroy]
+
+    resources :users, only: [:new, :create, :show]
+    resources :notifications, only: [:new, :create, :destroy]
+
+    namespace :admin do
+      get "/users", to: "users#index"
+      get "/courses", to: "courses#index"
+      put "/activation", to: "users#update"
+      delete "/delete", to: "users#destroy"
+      resources :users
+      resources :notifications, except: :new
+    end
     mount ActionCable.server => "/cable"
   end
   resources :users, only: [:new, :create, :show, :edit, :update]

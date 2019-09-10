@@ -22,6 +22,16 @@ class User < ApplicationRecord
 
   before_save :email_downcase
 
+  scope :load_users, ->(type) do
+    type ? where(activated: type) : where(activated: [true, false])
+  end
+
+  scope :order_by, ->{order(created_at: :desc)}
+
+  def activate
+    update_columns(activated: true, updated_at: Time.zone.now)
+  end
+
   private
 
   def email_downcase
