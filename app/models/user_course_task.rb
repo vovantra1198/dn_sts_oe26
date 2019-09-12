@@ -29,10 +29,9 @@ class UserCourseTask < ApplicationRecord
                                                         join users on users.id = user_course_tasks.user_id
                                                         join subjects on subjects.id = tasks.subject_id")}
   scope :by_user_id, lambda {|user_id| where("user_course_tasks.user_id" => user_id)}
-
   scope :by_user_id_subject_id_course_id, lambda {|user_id,subject_id, course_id| where("user_course_tasks.user_id" => user_id,
-                                                                             "user_course_tasks.course_id" => course_id,
-                                                                             "tasks.subject_id" => subject_id)}
+                                                                                        "user_course_tasks.course_id" => course_id,
+                                                                                        "tasks.subject_id" => subject_id)}
   def processing_count_subject
     ProcessingCourseSubject.execute(self)
   end

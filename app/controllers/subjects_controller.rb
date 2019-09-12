@@ -1,5 +1,5 @@
 class SubjectsController < ApplicationController
-  before_action :load_subject, only: :show
+  before_action :load_subject, only: [:show, :edit, :update]
 
   def show
     @course_user = current_user.course_users.find_by(course_id: params[:course_id])
@@ -12,6 +12,19 @@ class SubjectsController < ApplicationController
                  .group_by_id
   end
 
+  def edit; end
+
+  def update
+    respond_to do |format|
+      if @subject.update_attributes detail_params
+        flash[:success] =  t ".users.show.update_success "
+        format.html{redirect_to course_subject_path}
+      else
+        format.js
+      end
+    end
+  end
+
   private
 
   def load_subject
@@ -19,5 +32,9 @@ class SubjectsController < ApplicationController
     return if @subject
     flash["danger"] = t ".courses.notfound.notfound"
     redirect_to notfound_path
+  end
+
+  def detail_params
+    params.require(:subject).permit :details
   end
 end
