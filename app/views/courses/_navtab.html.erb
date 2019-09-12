@@ -20,26 +20,74 @@
     </div>
     <div id="report" class="container tab-pane fade"><br>
       <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col"> <%= t ".subject" %> </th>
-            <th scope="col"> <%= t ".name_task" %> </th>
-            <th scope="col"> <%= t ".file" %> </th>
-            <th scope="col"> <%= t ".status" %> </th>
-          </tr>
-        </thead>
         <% count = 0 %>
-        <% @user_couser_tasks.each do |user_course_task| %>
-          <tbody>
+        <% if current_user.trainee? %>
+          <thead>
             <tr>
-              <td> <%= count += 1 %> </td>
-              <td> <%= user_course_task.subject_name %> </td>
-              <td> <%= user_course_task.task_title %> </td>
-              <td> <%= link_to user_course_task.file_excel_file_name, user_course_task.file_excel.url %> </td>
-              <td> <%=user_course_task.status %> </td>
+              <th scope="col">#</th>
+              <th scope="col"> <%= t ".subject" %> </th>
+              <th scope="col"> <%= t ".name_task" %> </th>
+              <th scope="col"> <%= t ".file" %> </th>
+              <th scope="col"> <%= t ".status" %> </th>
+              <th scope="col">  </th>
             </tr>
-          </tbody>
+          </thead>
+          <% @user_couser_tasks.each do |user_course_task| %>
+            <tbody>
+              <tr>
+                <td> <%= count += 1 %> </td>
+                <td> <%= user_course_task.subject_name %> </td>
+                <td> <%= user_course_task.task_title %> </td>
+                <td> <%= link_to user_course_task.file_excel_file_name, user_course_task.file_excel.url %> </td>
+                <td> <%= user_course_task.status %> </td>
+                <td>
+                  <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+                    user_course_task_path(id: user_course_task.id,
+                                          course_id: params[:id],
+                                          join_date: params[:join_date]),
+                    method: :delete, data: {confirm: "you sure ? "} %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
+        <% else %>
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col"> <%= t ".name" %> </th>
+              <th scope="col"> <%= t ".subject" %> </th>
+              <th scope="col"> <%= t ".name_task" %> </th>
+              <th scope="col"> <%= t ".file" %> </th>
+              <th scope="col"> <%= t ".status" %> </th>
+              <th scope="col">#</th>
+              <th scope="col">#</th>
+            </tr>
+          </thead>
+          <% @user_task_ids.each do |user_course_task| %>
+            <tbody>
+              <tr>
+                <td> <%= count += 1 %> </td>
+                <td> <%= user_course_task.user_name %> </td>
+                <td> <%= user_course_task.subject_name %> </td>
+                <td> <%= user_course_task.task_title %> </td>
+                <td> <%= link_to user_course_task.file_excel_file_name, user_course_task.file_excel.url %> </td>
+                <td> <%= user_course_task.status %> </td>
+                <td>
+                  <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe,
+                    edit_user_course_task_path(id: user_course_task.id,
+                                               course_id: params[:course_id],
+                                               join_date: params[:join_date]) %>
+                </td>
+                <td>
+                  <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+                    user_course_task_path(id: user_course_task.id,
+                                          course_id: params[:id],
+                                          join_date: params[:join_date]),
+                    method: :delete, data: {confirm: "you sure ? "} %>
+                </td>
+              </tr>
+            </tbody>
+          <% end %>
         <% end %>
       </table>
     </div>
@@ -50,7 +98,7 @@
         <% @user_courses.each do |user_course| %>
           <% if user_course.user.trainer? %>
             <div class="col-sm-2">
-              <%= link_to user_course.user.name, user_path(id: user_course.user.id)%>
+              <%= link_to user_course.user.name, user_path(user_course.user) %>
             </div>
           <% end %>
         <% end %>
@@ -60,7 +108,7 @@
         <% @user_courses.each do |user_course| %>
           <% if user_course.user.trainee? %>
             <div class="col-sm-2">
-              <%= link_to user_course.user.name, user_path(id: user_course.user.id)%>
+              <%= link_to user_course.user.name, user_path(user_course.user) %>
             </div>
           <% end %>
         <% end %>

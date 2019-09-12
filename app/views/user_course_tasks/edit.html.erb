@@ -1,0 +1,9 @@
+<% provide :title, t(".title") %>
+<% provide :title_page, t(".title") %>
+<div class="wrapper">
+  <%= render "courses/sidebar" %>
+  <div id="content_page">
+    <%= render "courses/breadcrumd" %>
+    <%= render "user_course_tasks/form" %>
+  </div>
+</div>

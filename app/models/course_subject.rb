@@ -9,6 +9,7 @@ class CourseSubject < ApplicationRecord
                  subjects.duration_default as subject_duration,
                  subjects.details as subject_details,
                  course_subjects.status")                          }
+
   scope :with_subjects, ->{joins(" join subjects on course_subjects.subject_id = subjects.id")}
   scope :sort_by_order, ->{order :order}
 

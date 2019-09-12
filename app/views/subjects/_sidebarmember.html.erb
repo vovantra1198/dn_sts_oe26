@@ -1,6 +1,6 @@
-<h3> <%= t ".all_title" %> : </h3>
+<h3> <%= t ".all_tasks" %> : </h3>
 <ul class="menutitle">
-  <% @subject.tasks.each do |sub| %>
-    <li class=""> <%= link_to sub.title, "##{sub.title}" %> </li>
+  <% @subject.tasks.each_with_index do |sub, x| %>
+    <li class=""> <%= link_to sub.title, "##{x+1}" %> </li>
   <% end %>
 </ul>
