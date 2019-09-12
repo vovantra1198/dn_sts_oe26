@@ -1,0 +1,12 @@
+<div class="cardview view1">
+  <div class="card">
+    <%= image_tag("nguoi.png", :alt => "card image") %>
+    <div class="card-body">
+      <h5 class="card-title"> <%= @user.name %> </h5>
+      <p class="card-text"> email : <%= @user.email %> </p>
+      <% if current_user? @user %>
+      <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe, edit_user_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

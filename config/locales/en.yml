@@ -1,4 +1,12 @@
 en:
+  subjects:
+    show:
+      title: "show subject"
+      report: "Report"
+      reporttask: "Report for task"
+      submit: "Submitted"
+    sidebarmember:
+      all_title: "All title"
   notification:
     one: "The form contains 1 error"
     other: "The form contains %{count} errors"
@@ -12,10 +20,16 @@ en:
       myspace: "My space"
       mycourse: "My course"
     navtab:
-      subject: "Subjects"
-      task: "Tasks"
+      subjects: "Subjects"
+      report: "Reports"
       member: "Members"
+      subject: "Subject"
+      name_task: "Name task"
+      file: "File"
+      status: "Status"
       doccument: "Doccuments"
+      trainer: "Trainer"
+      trainee: "Trainee"
     index:
       title: "My Courses"
     cardview:
@@ -41,6 +55,17 @@ en:
       web_designer: "Web Designer"
       content_course: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate ducimus officiis quod! Aperiam eveniet nam nostrum odit quasi ullam voluptatum."
   users:
+    navbaruser:
+      name: "Name"
+      email: "Email"
+      birthday: "Birthday"
+      company: "Company"
+      gradution: "Gradution"
+      university: "University"
+      address: "Address"
+    show:
+      title: "show user"
+      update_success: "update success"
     new:
       title: "Sign up"
       btn_create: "Create"

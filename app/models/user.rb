@@ -5,10 +5,9 @@ class User < ApplicationRecord
 
   has_many :course_users, dependent: :destroy
   has_many :courses, through: :course_users
-  has_many :user_subjects, dependent: :destroy
-  has_many :subjects, through: :user_subjects
-  has_many :user_tasks, dependent: :destroy
-  has_many :course_subject_tasks, through: :user_tasks
+  has_many :user_course_tasks, dependent: :destroy
+  has_many :courses, through: :user_course_tasks
+  has_many :tasks, through: :user_course_tasks
   has_many :histories, dependent: :destroy
 
   enum gender: {male: 0, female: 1, other: 2}

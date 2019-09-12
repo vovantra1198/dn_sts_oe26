@@ -1,0 +1,16 @@
+<% provide :title, t(".title") %>
+<% provide :title_page, @user.name %>
+<div class="wrapper">
+  <%= render "courses/sidebar" %>
+  <div id="content_page">
+    <%= render "courses/breadcrumd" %>
+    <div class="content1">
+      <div class="view">
+        <%= render "users/cardview" %>
+      </div>
+      <div class="navuser">
+        <%= render "users/navbaruser" %>
+      </div>
+    </div>
+  </div>
+</div>

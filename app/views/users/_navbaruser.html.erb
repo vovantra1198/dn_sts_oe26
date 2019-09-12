@@ -1,0 +1,55 @@
+<div class="nav_tab1">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <%= link_to t(".timeline"), "#timeline", class: "nav-link active", data: { toggle: "tab"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(".actives"), "#active", class: "nav-link ", data: { toggle: "tab"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(".profile"), "#profile", class: "nav-link ", data: { toggle: "tab"} %>
+    </li>
+    <li class="nav-item">
+      <%= link_to t(".progress"), "#progress", class: "nav-link ", data: { toggle: "tab"} %>
+    </li>
+  </ul>
+  <div class="tab-content">
+    <div id="timeline" class="container tab-pane active"><br>
+    </div>
+    <div id="profile" class="container tab-pane fade"><br>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th> <%= t ".name" %> </th>
+            <td> <%= @user.name %> </td>
+          </tr>
+          <tr>
+            <th> <%= t ".email" %> </th>
+            <td> <%= @user.email %></td>
+          </tr>
+          <tr>
+            <th> <%= t ".birthday" %> </th>
+            <td> <%= l @user.birthday, format: :long %> </td>
+          </tr>
+          <tr>
+            <th> <%= t ".company" %> </th>
+            <td> <%= @user.company %> </td>
+          </tr>
+          <tr>
+            <th> <%= t ".gradution" %> </th>
+            <td> <%= @user.gradution %> </td>
+          </tr>
+          <tr>
+            <th> <%= t ".university" %> </th>
+            <td> <%= @user.university %> </td>
+          </tr>
+          <tr>
+            <th> <%= t ".address" %> </th>
+            <td> <%= @user.address %> </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

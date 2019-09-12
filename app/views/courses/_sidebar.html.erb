@@ -1,8 +1,8 @@
-<!-- Sidebar -->
+  <!-- Sidebar -->
 <nav id="sidebar">
   <div class="sidebar-header">
     <%= image_tag("nguoi.png", :alt => "logo user") %>
-    <%= link_to current_user.name, "#" %>
+    <%= link_to current_user.name, user_path(id: current_user.id)  %>
   </div>
   <ul class="list-unstyled components">
     <p> <%= t ".myif" %> </p>
@@ -10,7 +10,7 @@
         <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="navbar-toggler"> <%= t ".myspace" %> </a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
-              <%= link_to t(".mycourse"), courses_path %>
+            <%= link_to t(".mycourse"), courses_path %>
           </li>
         </ul>
       </li>
