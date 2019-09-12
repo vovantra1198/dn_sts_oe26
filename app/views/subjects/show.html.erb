@@ -11,33 +11,33 @@
     <%= render "subjects/sidebarmember" %>
     <div class="content">
       <% @subject.tasks.each_with_index do |task, x| %>
-          <div class="row_content">
-            <div id="<%= x+1 %>">
-              <h3><%= task.title %></h3>
-              <p><%= task.content %></p>
-            </div>
+        <div class="row_content">
+          <div id="<%= x+1 %>">
+            <h3><%= task.title %></h3>
+            <p><%= task.content %></p>
           </div>
-          <% if current_user.trainee? && @course_user.joinning? %>
-            <% unless check_status? params[:subject_status] %>
-              <div class="report">
-                <h3> <%= t ".reporttask" %> </h3>
-                <%= form_for(:usercoursetask, url: user_course_tasks_path, remote: true) do |f| %>
-                  <div class="row">
-                    <%= f.hidden_field :task_id, value: task.id %>
-                    <%= f.hidden_field :join_date, value:params[:join_date] %>
-                    <%= f.hidden_field :course_id, value: params[:course_id] %>
-                    <div class="col-sm-3">
-                      <%= f.file_field :file_excel, class: "btn btn-sm float-left" %>
-                    </div>
-                    <div class="col-sm-3 message"></div>
-                    <div class="col-sm-3">
-                      <%= f.submit t(".report"), class: "btn btn-primary" %>
-                    </div>
+        </div>
+        <% if current_user.trainee? && @course_user.joinning? %>
+          <% unless check_status? params[:subject_status] %>
+            <div class="report">
+              <h3> <%= t ".reporttask" %> </h3>
+              <%= form_for(:usercoursetask, url: user_course_tasks_path, remote: true) do |f| %>
+                <div class="row">
+                  <%= f.hidden_field :task_id, value: task.id %>
+                  <%= f.hidden_field :join_date, value: params[:join_date] %>
+                  <%= f.hidden_field :course_id, value: params[:course_id] %>
+                  <div class="col-sm-3">
+                    <%= f.file_field :file_excel, class: "btn btn-sm float-left" %>
                   </div>
-                <% end %>
-              </div>
-            <% end %>
+                  <div class="col-sm-3 message"></div>
+                  <div class="col-sm-3">
+                    <%= f.submit t(".report"), class: "btn btn-primary" %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
           <% end %>
+        <% end %>
       <% end %>
     </div>
     <div class="container">
