@@ -19,7 +19,14 @@
             <h3> <%= task.title %> </h3>
             <p> <%= task.content %> </p>
             <% unless current_user.trainee?  %>
-              <%= link_to t(".edit"), edit_task_path(task,course_id: params[:course_id], subject_id: @subject.id) %>
+              <div class="float-right">
+                <%= link_to '<i class="fa fa-refresh" aria-hidden="true"></i>'.html_safe,
+                      edit_task_path(id: task, course_id: params[:course_id],
+                                   subject_id: params[:id]) %>
+                <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+                      task_path(id: task, course_id: params[:course_id], subject_id: params[:id]),
+                      method: :delete, data: {confirm: "you sure ? "} %>
+              </div>
             <% end %>
           </div>
         </div>
@@ -44,6 +51,26 @@
             </div>
           <% end %>
         <% end %>
+      <% end %>
+      <% if current_user.trainer? %>
+        <div class="create_task">
+          <h3> <%= t ".create_task" %> </h3>
+          <div class="col-md-6 col-md-offset-3">
+            <%= form_for(:task, url: tasks_path) do |f| %>
+              <%= f.label t ".field_title" %>
+              <%= f.text_field :title, class: "form-control" %>
+
+              <%= f.label t ".content" %>
+              <%= f.text_field :content, class: "form-control" %>
+
+              <%= f.hidden_field :subject_id, value: @subject.id  %>
+              <%= f.hidden_field :course_id, value: params[:course_id] %>
+              <div class="message">
+              </div>
+              <%= f.submit t(".create_task"), class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
       <% end %>
     </div>
     <div class="container">

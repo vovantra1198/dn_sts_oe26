@@ -1,23 +1,43 @@
 en:
   tasks:
     edit:
-      title: "edit tasks"
-      title_field: "Title"
+      field_title: "Title"
       content: "Content"
       update: "Update"
+      title: "edit task"
+      content: "Content"
+      update: "Update"
+      create_fail: "Create fail"
+
+    create:
+      create_success: "created success"
+      not_success: "not success"
+    update:
+      update_success: "updated success"
+    destroy:
+      delete_success: "deleted success"
+      delete_fail: "delete fail"
   user_course_tasks:
     edit:
       title: "Edit report"
     form:
       status: "Status"
       update: "Update"
+  user_course_tasks:
+    edit:
+      title: "Edit report"
   subjects:
+    update:
+      update_success: "Updated success"
     edit:
       title: "Edit subject"
       detail: "Details"
       update: "Update"
     show:
       title: "show subject"
+      field_title: "Title"
+      content: "Content"
+      create_task: "Create task"
       report: "Report"
       reporttask: "Report for task"
       submit: "Submitted"
