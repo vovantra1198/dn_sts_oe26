@@ -50,6 +50,7 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit :title, :content
   end
+
   def full_params
     params.require(:task).permit :title, :content, :subject_id
   end
