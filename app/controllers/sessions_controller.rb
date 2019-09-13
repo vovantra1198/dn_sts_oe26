@@ -4,7 +4,11 @@ class SessionsController < ApplicationController
     respond_to do |f|
       if user&.authenticate(params[:session][:password])
         log_in user
-        f.html{redirect_to courses_path}
+        if user.admin?
+          f.html{redirect_to admin_users_path}
+        else
+          f.html{redirect_to courses_path}
+        end
       else
         f.js {}
       end

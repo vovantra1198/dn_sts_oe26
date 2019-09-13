@@ -1,0 +1,29 @@
+<div class="card-profile">
+  <%= image_tag("avatar.png", alt: "card image") %>
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= link_to user.name, "#" %>
+    </h5>
+    <p class="card-text">
+      Email: <%= user.email %>
+    </p>
+    <p class="card-text">
+      <%= t(".birthday", day: user.birthday) %>
+    </p>
+    <p class="card-text">
+      <%= t(".university", university: user.university) %>
+    </p>
+    <% if current_user.admin? && !current_user?(user) %>
+      <div class="row-sm-2 btn-card", id="card-btn">
+        <%= button_to t(".btn_delete"), admin_delete_path(id: user.id),
+          method: :delete, class: "btn btn-outline-danger float-left",
+          data: { confirm: t(".confirm_delete", name: user.name)} %>
+        <% unless user.activated? %>
+          <%= button_to t(".btn_active"), admin_activation_path(id: user.id),
+            method: :put, class: "btn btn-outline-success float-right",
+            data: { confirm: t(".confirm_active", name: user.name)} %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
