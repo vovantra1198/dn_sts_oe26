@@ -15,4 +15,9 @@ module ApplicationHelper
   def convert_status status
     CourseSubject.statuses.key(status)
   end
+
+  def check_status? status
+    status == Settings.finish
+  end
+
 end

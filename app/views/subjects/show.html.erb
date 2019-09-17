@@ -5,33 +5,82 @@
   <div id="content_page">
     <%= render "courses/breadcrumd" %>
     <%= render "subjects/titlesubject" %>
+    <div class="details">
+      <%= @subject.details %>
+    </div>
     <%= render "subjects/sidebarmember" %>
     <div class="content">
-      <% @subject.tasks.each do |task| %>
-        <div class="row_content">
-          <div id="<%= task.title%>">
-            <h3><%= task.title %></h3>
-            <p><%= task.content %></p>
+      <% @subject.tasks.each_with_index do |task, x| %>
+          <div class="row_content">
+            <div id="<%= x+1 %>">
+              <h3><%= task.title %></h3>
+              <p><%= task.content %></p>
+            </div>
           </div>
-        </div>
-        <div class="report">
-        <h3> <%= t ".reporttask" %> </h3>
-          <%= form_for(:usercoursetask, url: user_course_tasks_path, remote: true) do |f| %>
-            <div class="row">
-              <%= f.hidden_field :task_id, value: task.id %>
-              <%= f.hidden_field :course_id, value: params[:course_id] %>
-              <div class="col-sm-3">
-                <%= f.file_field :file_excel, class: "btn btn-sm float-left" %>
+          <% if current_user.trainee? && @course_user.joinning? %>
+            <% unless check_status? params[:subject_status] %>
+              <div class="report">
+                <h3> <%= t ".reporttask" %> </h3>
+                <%= form_for(:usercoursetask, url: user_course_tasks_path, remote: true) do |f| %>
+                  <div class="row">
+                    <%= f.hidden_field :task_id, value: task.id %>
+                    <%= f.hidden_field :join_date, value:params[:join_date] %>
+                    <%= f.hidden_field :course_id, value: params[:course_id] %>
+                    <div class="col-sm-3">
+                      <%= f.file_field :file_excel, class: "btn btn-sm float-left" %>
+                    </div>
+                    <div class="col-sm-3 message"></div>
+                    <div class="col-sm-3">
+                      <%= f.submit t(".report"), class: "btn btn-primary" %>
+                    </div>
+                  </div>
+                <% end %>
               </div>
-              <div class="col-sm-3 message">
+            <% end %>
+          <% end %>
+      <% end %>
+    </div>
+    <div class="container">
+      <div class="row1">
+        <div class="col-md-12">
+          <div class="text-center text-uppercase">
+            <h2> <%= t ".task_of_member" %> </h2>
+          </div>
+          <div class="column-chart">
+            <div class="legend legend-left hidden-xs">
+                <p class="legend-title"> <%= t "number_task" %> </p>
+            </div>
+            <div class="legend legend-right hidden-xs">
+              <div class="item">
+                <h4>20</h4>
               </div>
-              <div class="col-sm-3">
-                <%= f.submit t(".report"), class: "btn btn-primary" %>
+              <div class="item">
+                  <h4>15</h4>
+              </div>
+              <div class="item">
+                  <h4>10</h4>
+              </div>
+              <div class="item">
+                  <h4>5</h4>
               </div>
             </div>
-          <% end %>
+            <div class="chart clearfix">
+              <% @users.each do |user|%>
+                <% if user.trainee? %>
+                  <div class="item">
+                    <div class="bar">
+                      <span class="percent"> <%= user.count_tasks %> </span>
+                      <div class="item-progress" data-percent="<%= user.count_tasks %>">
+                        <span class="title"> <%= user.name %> </span>
+                      </div>
+                    </div>
+                  </div>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>

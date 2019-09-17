@@ -1,0 +1,8 @@
+<%= form_for(@user_course_task ) do |f| %>
+  <%= f.label t ".status" %>
+  <%= f.select :status, options_for_select(type_status, @user_course_task.status.to_s), {}, {class: "form-control"} %>
+  <%= f.hidden_field :course_id %>
+  <%= f.hidden_field :join_date, value: @join_date %>
+  <div class="message"></div>
+  <%= f.submit t(".update"), class: "btn btn-primary" %>
+<% end %>

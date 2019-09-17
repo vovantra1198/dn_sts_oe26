@@ -1,12 +1,20 @@
 en:
+  user_course_tasks:
+    edit:
+      title: "Edit report"
+    form:
+      status: "Status"
+      update: "Update"
   subjects:
     show:
       title: "show subject"
       report: "Report"
       reporttask: "Report for task"
       submit: "Submitted"
+      task_of_member: "Task of members"
+      number_task: "Numbers task"
     sidebarmember:
-      all_title: "All title"
+      all_tasks: "All tasks"
   admin:
     users:
       index:
@@ -54,6 +62,10 @@ en:
       button_show: "Show"
     show:
       title: "Show course"
+      delete_success: "deleted success"
+      not_success: "Not yet delete"
+    itemtimeline:
+      status: "Status"
   layouts:
     application:
       title: "Framgia Training System"
@@ -91,6 +103,7 @@ en:
       gradution: "Gradution"
       university: "University"
       address: "Address"
+      status: "Status"
     show:
       title: "show user"
       update_success: "update success"
