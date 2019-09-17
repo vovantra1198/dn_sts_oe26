@@ -7,4 +7,12 @@ module ApplicationHelper
   def load_name name, day
     full_name = name + " ( " + day.to_s + "days )"
   end
+
+  def type_status
+    Settings.status_type
+  end
+
+  def convert_status status
+    CourseSubject.statuses.key(status)
+  end
 end

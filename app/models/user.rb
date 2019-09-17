@@ -16,10 +16,10 @@ class User < ApplicationRecord
     length: {maximum: Settings.user.max_length_name}
   validates :email, presence: true,
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  validates :birthday, presence: true
   has_secure_password
   validates :password, presence: true,
     length: {minimum: Settings.user.min_length_password}
-
   before_save :email_downcase
 
   scope :load_users, ->(type) do
@@ -31,10 +31,23 @@ class User < ApplicationRecord
   def activate
     update_columns(activated: true, updated_at: Time.zone.now)
   end
+  scope :with_by_course_user_course_subject, lambda {joins("left outer join course_users on users.id = course_users.user_id
+                                                            left outer join courses on course_users.course_id = courses.id
+                                                            left outer join course_subjects on course_subjects.course_id = courses.id")}
+  scope :by_course_id_subject_id_join_date,
+          lambda {|subject_id, course_id, join_date| where("course_subjects.subject_id" => subject_id,
+                                                           "courses.id" => course_id,
+                                                           "course_users.join_date" => join_date)}
+  scope :select_users_and_count_tasks, lambda {select("users.*, count(user_course_tasks.user_id) as count_tasks")}
+  scope :with_by_user_course_tasks, lambda {joins("left outer join user_course_tasks on users.id = user_course_tasks.user_id")}
+  scope :by_id,-> (id) {where "users.id = ?", id}
+  scope :group_by_id, lambda {group("id")}
+  scope :by_user_id, lambda{|id| where("id" => id )}
 
   private
 
   def email_downcase
     email.downcase!
   end
+
 end
