@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
   before_action :load_user, only: [:show, :edit, :update]
 
-  def show; end
-
   def new
     @user = User.new
   end
 
-  def show; end
+  def show
+    @course_users = @user.course_users.select_subject
+                         .with_course_course_subject_subject.joinning
+  end
 
   def create
     @user = User.new user_params

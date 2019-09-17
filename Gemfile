@@ -20,6 +20,7 @@ gem "mini_magick", "4.7.0"
 gem "mysql2", ">= 0.4.4", "< 0.6.0"
 gem "paperclip", "~> 5.1"
 gem "puma", "~> 3.11"
+gem "pundit"
 gem "rails", "~> 5.2.3"
 gem "rails-i18n"
 gem "rubocop", "~> 0.54.0", require: false
@@ -27,7 +28,6 @@ gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "will_paginate", "~> 3.1.7"
-gem "pundit"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

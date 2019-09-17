@@ -7,20 +7,14 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
-    if @user.delete
-      flash[:info] = t(".delete_success", name: @user.name)
-    else
-      flash[:info] = t(".delete_fail", name: @user.name)
-    end
+    key = @user.delete ? ".delete_success" : ".delete_fail"
+    flash[:info] = t(key, name: @user.name)
     redirect_to request.referrer
   end
 
   def update
-    if @user.activate
-      flash[:info] = t(".active_success", name: @user.name)
-    else
-      flash[:info] = t(".active_fail", name: @user.name)
-    end
+    key = @user.activate ? ".active_success" : ".active_fail"
+    flash[:info] = t(key, name: @user.name)
     redirect_to request.referrer
   end
 

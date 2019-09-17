@@ -13,6 +13,15 @@ $a47b: #47748b;
 $a73d: #7386D5;
 $a6d7: #6d7fcc;
 $a22c: #22c0e8;
+$e9: #e9ecef;
+$threed: #ddd;
+$d4: #d4d9df;
+$threec: #ccc;
+$threee: #eee;
+$three3: #333;
+$three7: #777;
+$b4b5: #b4b4b5;
+$b9b3: #b9b3b3;
 
 .main-timeline{position:relative}
 .main-timeline:before{content:"";width:5px;height:100%;border-radius:20px;margin:0 auto;background:#242922;position:absolute;top:0;left:0;right:0}
@@ -198,7 +207,7 @@ ul ul a {
 }
 .timeline_course ul.timeline:before {
   content: ' ';
-  background: #d4d9df;
+  background: $d4;
   display: inline-block;
   position: absolute;
   left: 29px;
@@ -222,19 +231,15 @@ ul ul a {
   height: 20px;
   z-index: 400;
 }
-.cardview {
-  width: 100%;
+
+.view1 .card {
+  width: 30%;
   float: left;
+  margin: 0 10px;
 }
-.card {
-  width: 100%;
-}
-.card img {
+.view1 .card img {
   width: 80%;
   margin: auto;
-}
-.view {
-  width: 33%
 }
 .navuser {
   width: 66%;
@@ -245,4 +250,332 @@ ul ul a {
 }
 .message{
   color: red;
+}
+.course_view .cardview{
+  width: 100%
+}
+.course_view .card{
+  width: 30%;
+  float: left;
+  margin: 0 10px;
+}
+.course_view .card img {
+  width: 80%;
+  margin: auto;
+}
+.card{
+  position: relative;
+  overflow: hidden;
+}
+.status{
+  position: absolute;
+  top: 15px;
+  right: 0;
+  transform: rotate(45deg);
+  text-align: center;
+  z-index: 2;
+}
+.status_bg{
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-left: 45px solid transparent;
+  border-bottom: 45px solid transparent;
+  border-top: 45px solid $e9;
+  border-right: 45px solid $e9;
+  z-index: 1;
+}
+.message-item {
+  margin-bottom: 25px;
+  margin-left: 40px;
+  position: relative;
+}
+.message-item .message-inner {
+  background: $while;
+  border: 1px solid $threed;
+  border-radius: 3px;
+  padding: 10px;
+  position: relative;
+}
+.message-item .message-inner:before {
+  border-right: 10px solid $threed;
+  border-style: solid;
+  border-width: 10px;
+  color: rgba(0,0,0,0);
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 0;
+}
+.message-item .message-inner:after {
+  border-right: 10px solid $while;
+  border-style: solid;
+  border-width: 10px;
+  color: rgba(0,0,0,0);
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+  left: -18px;
+  top: 6px;
+  width: 0;
+}
+.message-item:before {
+  background: $while;
+  border-radius: 2px;
+  bottom: -30px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.2);
+  content: "";
+  height: 100%;
+  left: -30px;
+  position: absolute;
+  width: 3px;
+}
+.message-item:after {
+  background: $while;
+  border: 2px solid $threec;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  content: "";
+  height: 15px;
+  left: -36px;
+  position: absolute;
+  top: 10px;
+  width: 15px;
+}
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.message-item .message-head {
+  border-bottom: 1px solid $threee;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+}
+.message-item .message-head .avatar {
+  margin-right: 20px;
+}
+.message-item .message-head .user-detail {
+  overflow: hidden;
+}
+.message-item .message-head .user-detail h5 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+.message-item .message-head .post-meta {
+  float: left;
+  padding: 0 15px 0 0;
+}
+.message-item .message-head .post-meta >div {
+  color: $three3;
+  font-weight: bold;
+  text-align: right;
+}
+.post-meta > div {
+  color: $three7;
+  font-size: 12px;
+  line-height: 22px;
+}
+.message-item .message-head .post-meta >div {
+  color: $three3;
+  font-weight: bold;
+  text-align: right;
+}
+.post-meta > div {
+  color: $three7;
+  font-size: 12px;
+  line-height: 22px;
+}
+.column-chart {
+  position: relative;
+  z-index: 20;
+  bottom: 0;
+  left: 50%;
+  width: 100%;
+  height: 320px;
+  margin-top: 40px;
+  margin-left: -50%;
+}
+@media (min-width: 568px) {
+  .column-chart {
+    width: 80%;
+    margin-left: -40%;
+  }
+}
+@media (min-width: 768px) {
+  .column-chart {
+    width: 60%;
+    margin-left: -30%;
+  }
+}
+@media (min-width: 992px) {
+  .column-chart {
+    width: 40%;
+    margin-left: -20%;
+  }
+}
+@media (min-width: 1024px) {
+  .column-chart {
+    width: 36%;
+    margin-left: -18%;
+  }
+}
+.column-chart:before, .column-chart:after {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: calc(100% + 30px);
+  height: 25%;
+  margin-left: -15px;
+  border-bottom: 1px dashed $b4b5;
+}
+.column-chart:after {
+  top: 50%;
+}
+.column-chart > .legend {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+}
+.column-chart > .legend.legend-left {
+  left: 0;
+  width: 25px;
+  height: 75%;
+  margin-left: -55px;
+  border: 1px solid $b4b5;
+  border-right: none;
+}
+.column-chart > .legend.legend-left > .legend-title {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 65px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -90px;
+  letter-spacing: 1px;
+}
+.column-chart > .legend.legend-right {
+  right: 0;
+  width: 100px;
+  height: 100%;
+  margin-right: -115px;
+}
+.column-chart > .legend.legend-right > .item {
+  position: relative;
+  width: 100%;
+  height: 25%;
+}
+.column-chart > .legend.legend-right > .item > h4 {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  margin-top: -20px;
+  font-size: 16px;
+  text-align: right;
+}
+.column-chart > .chart {
+  position: relative;
+  z-index: 20;
+  bottom: 0;
+  left: 50%;
+  width: 98%;
+  height: 100%;
+  margin-left: -49%;
+}
+.column-chart > .chart > .item {
+  position: relative;
+  float: left;
+  height: 100%;
+  width: 50px;
+}
+.column-chart > .chart > .item:before {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  height: calc(100% + 15px);
+  border-right: 1px dashed $b4b5;
+}
+.column-chart > .chart > .item > .bar {
+  position: absolute;
+  bottom: 0;
+  left: 3px;
+  width: 94%;
+  height: 100%;
+}
+.column-chart > .chart > .item > .bar > span.percent {
+  display: block;
+  position: absolute;
+  z-index: 25;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 26px;
+  line-height: 26px;
+  color: $while;
+  background-color: $b9b3;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.column-chart > .chart > .item > .bar > .item-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  color: $while;
+  background-color: $e9;
+}
+.column-chart > .chart > .item > .bar > .item-progress > .title {
+  position: absolute;
+  top: calc(50% - 13px);
+  left: 50%;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  -moz-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+}
+@media (min-width: 360px) {
+  .column-chart > .chart > .item > .bar > .item-progress > .title {
+    font-size: 16px;
+  }
+}
+@media (min-width: 480px) {
+  .column-chart > .chart > .item > .bar > .item-progress > .title {
+    font-size: 13px;
+    width: 100px;
+  }
+}
+.row1 {
+  min-height: 500px;
+}
+.row_time {
+  width: 100%;
+}
+.details {
+  margin: 10px;
+}
+.running{
+  color: red;
+}
+.finish{
+  color: yellow;
 }
