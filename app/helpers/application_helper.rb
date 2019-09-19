@@ -19,5 +19,4 @@ module ApplicationHelper
   def check_status? status
     status == Settings.finish
   end
-
 end

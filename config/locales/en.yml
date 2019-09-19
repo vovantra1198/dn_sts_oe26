@@ -107,6 +107,7 @@ en:
     show:
       title: "show user"
       update_success: "update success"
+      update_fail: "update fail"
     new:
       title: "Sign up"
       btn_create: "Create"
