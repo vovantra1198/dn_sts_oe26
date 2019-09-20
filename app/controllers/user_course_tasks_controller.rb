@@ -6,8 +6,8 @@ class UserCourseTasksController < ApplicationController
     respond_to do |format|
       if @usercoursetaskser.save
         flash[:success] = t "subjects.show.submit"
-        format.html{redirect_to course_path(id: @usercoursetaskser.course_id,
-                                            join_date: params[:usercoursetask][:join_date])}
+        format.html {redirect_to course_path(id: @usercoursetaskser.course_id,
+                                             join_date: params[:usercoursetask][:join_date])}
       else
         format.js
       end
@@ -29,6 +29,7 @@ class UserCourseTasksController < ApplicationController
       end
     end
   end
+
   def destroy
     if @user_course_task.destroy
       flash[:success] = t "courses.show.delete_success"

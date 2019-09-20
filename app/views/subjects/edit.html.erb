@@ -1,0 +1,15 @@
+<% provide :title, t(".title") %>
+<% provide :title_page, t(".title") %>
+<div class="wrapper">
+  <%= render "courses/sidebar" %>
+  <div id="content_page">
+    <%= render "courses/breadcrumd" %>
+    <%= form_for(@subject, url: course_subject_path) do |f| %>
+      <%= f.label t ".detail" %>
+      <%= f.text_area :details, class: "form-control text_details" %>
+      <%= f.hidden_field :course_id, value: params[:course_id] %>
+      <div class="message"></div>
+      <%= f.submit t(".update"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

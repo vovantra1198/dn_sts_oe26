@@ -1,4 +1,10 @@
 en:
+  tasks:
+    edit:
+      title: "edit tasks"
+      title_field: "Title"
+      content: "Content"
+      update: "Update"
   user_course_tasks:
     edit:
       title: "Edit report"
@@ -6,6 +12,10 @@ en:
       status: "Status"
       update: "Update"
   subjects:
+    edit:
+      title: "Edit subject"
+      detail: "Details"
+      update: "Update"
     show:
       title: "show subject"
       report: "Report"
@@ -13,6 +23,7 @@ en:
       submit: "Submitted"
       task_of_member: "Task of members"
       number_task: "Numbers task"
+      edit: "Edit"
     sidebarmember:
       all_tasks: "All tasks"
   admin:

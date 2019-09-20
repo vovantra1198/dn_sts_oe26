@@ -10,5 +10,5 @@ class Task < ApplicationRecord
   validates :content, presence: true,
     length: {maximum: Settings.task.max_length_content}
 
-  scope :by_subject_id, -> (subject_id){where("subject_id = ?", subject_id )}
+  scope :by_subject_id, ->(subject_id){where("subject_id = ?", subject_id)}
 end

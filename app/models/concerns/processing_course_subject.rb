@@ -10,7 +10,9 @@ module ProcessingCourseSubject
     end
 
     def passed_subject? user_id, course_id, subject_id
-      total_subject_tasks = Task.by_subject_id(subject_id).size
+      @subject  = Subject.find_by(id: subject_id)
+      return if @subject.blank?
+      total_subject_tasks =  @subject.tasks.size
       passed_subject_tasks = UserCourseTask.joins(:task)
                                            .by_user_id_subject_id_course_id(user_id,subject_id, course_id)
                                            .passed.size

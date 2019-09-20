@@ -22,8 +22,9 @@ Rails.application.routes.draw do
     mount ActionCable.server => "/cable"
   end
   resources :users, except: [:index, :destroy]
+  resources :tasks, only: [:edit, :update]
   resources :courses, only: [:index, :show] do
-    resources :subjects, only: [:show]
+    resources :subjects, only: [:show, :edit, :update]
   end
   resources :user_course_tasks, except: [:index, :show]
 
