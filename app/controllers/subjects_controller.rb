@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @subject.update_attributes detail_params
-        flash[:success] =  t ".users.show.update_success "
+        flash[:success] = t ".update_success"
         format.html{redirect_to course_subject_path}
       else
         format.js
