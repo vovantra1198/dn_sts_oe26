@@ -16,3 +16,4 @@ status_type: ["submitted", "passed"]
 finish: "finish"
 status_0: 0
 order_1: 1
+status_2: 2

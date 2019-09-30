@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :courses, through: :user_course_tasks
   has_many :tasks, through: :user_course_tasks
   has_many :histories, dependent: :destroy
+  has_many :user_course_subjects, dependent: :destroy
+  has_many :course_subjects, through: :user_course_subjects
 
   enum gender: {male: 0, female: 1, other: 2}
   enum role: {trainee: 0, trainer: 1, admin: 2}
@@ -43,6 +45,8 @@ class User < ApplicationRecord
   scope :by_id,-> (id) {where "users.id = ?", id}
   scope :group_by_id, lambda {group("id")}
   scope :by_user_id, lambda{|id| where("id" => id )}
+  scope :by_not_user_id, lambda{|id| where.not(id: id )}
+
 
   private
 

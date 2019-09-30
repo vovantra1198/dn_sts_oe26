@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_10_101436) do
+ActiveRecord::Schema.define(version: 2019_09_30_062504) do
 
   create_table "course_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "course_id"
@@ -81,6 +81,18 @@ ActiveRecord::Schema.define(version: 2019_09_10_101436) do
     t.index ["subject_id"], name: "index_tasks_on_subject_id"
   end
 
+  create_table "user_course_subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "course_subject_id"
+    t.bigint "user_id"
+    t.integer "status", default: 2
+    t.integer "duration"
+    t.integer "order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_subject_id"], name: "index_user_course_subjects_on_course_subject_id"
+    t.index ["user_id"], name: "index_user_course_subjects_on_user_id"
+  end
+
   create_table "user_course_tasks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "course_id"
@@ -120,6 +132,8 @@ ActiveRecord::Schema.define(version: 2019_09_10_101436) do
   add_foreign_key "course_users", "users"
   add_foreign_key "histories", "users"
   add_foreign_key "tasks", "subjects"
+  add_foreign_key "user_course_subjects", "course_subjects"
+  add_foreign_key "user_course_subjects", "users"
   add_foreign_key "user_course_tasks", "courses"
   add_foreign_key "user_course_tasks", "tasks"
   add_foreign_key "user_course_tasks", "users"

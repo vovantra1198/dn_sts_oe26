@@ -17,6 +17,13 @@ en:
     destroy:
       delete_success: "deleted success"
       delete_fail: "delete fail"
+  course_users:
+    create:
+      add_success: "added success"
+      not_trainer: "You not traniner"
+    destroy:
+      delete_success: "deleted success"
+      delete_fail: "delete fail"
   user_course_tasks:
     edit:
       title: "Edit report"
@@ -26,6 +33,17 @@ en:
   user_course_tasks:
     edit:
       title: "Edit report"
+  tasks:
+    edit:
+      title: "edit task"
+      field_title: "Title"
+      content: "Content"
+      update: "Update"
+    create:
+      created_success: "created success"
+      not_success: "not success"
+      delete_success: "deleted success"
+      delete_fail: "delete Fail"
   subjects:
     update:
       update_success: "Updated success"
@@ -33,6 +51,8 @@ en:
       title: "Edit subject"
       detail: "Details"
       update: "Update"
+    update:
+      update_success: "update success!!!"
     show:
       title: "show subject"
       field_title: "Title"
@@ -87,6 +107,10 @@ en:
       doccument: "Doccuments"
       trainer: "Trainer"
       trainee: "Trainee"
+      sure: "You sure ?"
+      add: "Add"
+      add_member: "Add Members"
+      name: "Name"
     index:
       title: "My Courses"
     cardview:
@@ -144,7 +168,8 @@ en:
       btn_create: "Create"
       title_create_account: "Create an account"
     create:
-      check_mail_code: "Check mail to get code confirm!"
+      create_success: "created success"
+      create_fail: "created fail"
     form:
       place_name: Name
       place_email: Email

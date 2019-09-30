@@ -45,7 +45,7 @@
                     user_course_task_path(id: user_course_task.id,
                                           course_id: params[:id],
                                           join_date: params[:join_date]),
-                    method: :delete, data: {confirm: "you sure ? "} %>
+                    method: :delete, data: {confirm: t(".sure")} %>
                 </td>
               </tr>
             </tbody>
@@ -83,7 +83,7 @@
                     user_course_task_path(id: user_course_task.id,
                                           course_id: params[:id],
                                           join_date: params[:join_date]),
-                    method: :delete, data: {confirm: "you sure ? "} %>
+                    method: :delete, data: {confirm: t(".sure")} %>
                 </td>
               </tr>
             </tbody>
@@ -98,7 +98,12 @@
         <% @user_courses.each do |user_course| %>
           <% if user_course.user.trainer? %>
             <div class="col-sm-2">
-              <%= link_to user_course.user.name, user_path(user_course.user) %>
+              <%= link_to user_course.user.name, user_path(id: user_course.user.id)%>
+              <% if current_user.trainer? %>
+                <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+                      course_user_path(id: user_course, course_id: params[:id], join_date: params[:join_date]),
+                        method: :delete, data: { confirm: t(".sure") } %>
+              <% end %>
             </div>
           <% end %>
         <% end %>
@@ -109,10 +114,29 @@
           <% if user_course.user.trainee? %>
             <div class="col-sm-2">
               <%= link_to user_course.user.name, user_path(user_course.user) %>
+              <% if current_user.trainer? %>
+                <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>'.html_safe,
+                      course_user_path(id: user_course, course_id: params[:id], join_date: params[:join_date]),
+                        method: :delete, data: { confirm: t(".sure") } %>
+              <% end %>
             </div>
           <% end %>
         <% end %>
       </div>
+      <% if current_user.trainer? %>
+        <div class="create_member">
+          <h3> <%= t ".add_member" %> </h3>
+          <%= form_for(:course_user, url: course_users_path ) do |f| %>
+            <%= f.label t ".name", class: "col-sm-2" %>
+            <%= f.select :user_id, options_for_select(@user_not_courses), {}, {class: "form-control"} %>
+            <%= f.hidden_field :course_id, value: params[:id] %>
+            <%= f.hidden_field :join_date, value: params[:join_date] %>
+            <div class="message">
+            </div>
+            <%= f.submit t(".add"), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
