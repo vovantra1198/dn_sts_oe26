@@ -11,17 +11,14 @@ Rails.application.routes.draw do
     resources :users, only: [:new, :create]
     resources :notifications, only: [:new, :create, :destroy]
 
-    namespace :admin do
-      get "/users", to: "users#index"
-      get "/courses", to: "courses#index"
-      put "/activation", to: "users#update"
-      delete "/delete", to: "users#destroy"
-      resources :users
-      resources :notifications, except: :new
-    end
     mount ActionCable.server => "/cable"
   end
+  namespace :admin do
+    resources :users
+    resources :notifications, except: :new
+  end
   resources :users, except: [:index, :destroy]
+  resources :course_users, only: [ :create, :destroy]
   resources :tasks, only: [:edit, :update , :create, :destroy]
   resources :courses, only: [:index, :show] do
     resources :subjects, only: [:show, :edit, :update]

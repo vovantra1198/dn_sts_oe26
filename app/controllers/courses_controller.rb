@@ -9,6 +9,8 @@ class CoursesController < ApplicationController
                               .with_subjects
                               .sort_by_order
     @user_courses = @course.course_users.by_join_date(params[:join_date])
+    @user_courses_ids = CourseUser.joinning.pluck("user_id")
+    @user_not_courses = User.by_not_user_id(@user_courses_ids).pluck(:name, :id)
     @user_couser_tasks = current_user.user_course_tasks
                                      .select_user_course_tasks
                                      .with_task_subject.find_by_course(@course.id)
