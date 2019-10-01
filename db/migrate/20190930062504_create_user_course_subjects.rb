@@ -6,6 +6,7 @@ class CreateUserCourseSubjects < ActiveRecord::Migration[5.2]
       t.integer :status, default: 2
       t.integer :duration
       t.integer :order
+      t.boolean :deleted, default: false
       t.timestamps
     end
   end

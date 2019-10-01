@@ -6,7 +6,7 @@ class CreateUserCourseTasks < ActiveRecord::Migration[5.2]
       t.references :task, foreign_key: true
       t.string :file_excel
       t.integer :status, default: 0
-
+      t.boolean :deleted, default: 0
       t.timestamps
     end
   end

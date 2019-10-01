@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.bigint "user_id"
     t.date "join_date"
     t.integer "status", default: 0
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id", "user_id"], name: "index_course_users_on_course_id_and_user_id", unique: true
@@ -87,6 +88,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.integer "status", default: 2
     t.integer "duration"
     t.integer "order"
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_subject_id"], name: "index_user_course_subjects_on_course_subject_id"
@@ -98,6 +100,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.bigint "course_id"
     t.bigint "task_id"
     t.integer "status", default: 0
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "file_excel_file_name"
@@ -122,6 +125,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.integer "gender", default: 0
     t.boolean "joined", default: false
     t.boolean "activated", default: false
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

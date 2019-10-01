@@ -9,43 +9,16 @@
         <%= image_tag("nguoi.png", :alt => "logo-admintrator") %>
       </li>
       <li id="sub-menu">
-        <span itemprop="name"><%= t(".users") %></span>
-        <ul class="sub-menu">
-          <li>
-            <%= link_to t(".all"), admin_users_path %>
-          </li>
-          <li>
-            <%= link_to t(".activared"), admin_users_path(type: true)  %>
-          </li>
-          <li>
-            <%= link_to t(".archive"), admin_users_path(type: false) %>
-          </li>
-          </ul>
+        <span itemprop="name"> <%= link_to t(".User"), admin_users_path %> </span>
       </li>
       <li id="sub-menu">
-        <span itemprop="name"><%= t(".courses") %></span>
-        <ul class="sub-menu">
-          <li>
-            <%= link_to t(".all"), "#" %>
-          </li>
-          <li>
-            <%= link_to t(".completed"), "#" %>
-          </li>
-          <li>
-            <%= link_to t(".running"), "#" %>
-          </li>
-        </ul>
+        <span itemprop="name"><%= link_to t(".Courses"), admin_courses_path %> </span>
       </li>
       <li>
         <%= link_to t(".subjects&task"), "#" %>
       </li>
       <li>
         <%= link_to t(".contact"), "#" %>
-      </li>
-      <li class="nav-item btn-menu">
-        <%= hidden_field_tag "sub_user", get_sub_user %>
-        <%= render "notifications/notification_center",
-          notifications: get_notification %>
       </li>
     </ul>
   </nav>

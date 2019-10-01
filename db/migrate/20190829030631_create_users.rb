@@ -13,7 +13,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :gender, default: 0
       t.boolean :joined, default: false
       t.boolean :activated, default: false
-
+      t.boolean :deleted, default: false
       t.timestamps
     end
   end

@@ -5,7 +5,7 @@ class CreateCourseUsers < ActiveRecord::Migration[5.2]
       t.references :user, foreign_key: true
       t.date :join_date
       t.integer :status, default: 0
-
+      t.boolean :deleted, default: false
       t.timestamps
     end
     add_index :course_users, [:course_id, :user_id], unique: true

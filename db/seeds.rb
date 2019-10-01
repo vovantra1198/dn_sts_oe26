@@ -3,41 +3,48 @@ User.create!(name:  "vo van tra",
              password: "123123",
              password_confirmation: "123123",
              role: 1,
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "vo van tri",
              email: "vovantri@gmail.com",
              password: "123123",
              password_confirmation: "123123",
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "vo van tre",
              email: "vovantre@gmail.com",
              password: "123123",
              password_confirmation: "123123",
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "vo van a",
              email: "vovantrads@gmail.com",
              password: "123123",
              password_confirmation: "123123",
              role: 1,
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "vo van trasd",
              email: "vovantr2@gmail.com",
              password: "123123",
              password_confirmation: "123123",
              role: 1,
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "vo van tr3",
              email: "vovant3@gmail.com",
              password: "123123",
              password_confirmation: "123123",
              role: 1,
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 User.create!(name:  "admin",
              email: "admin@gmail.com",
              password: "123123",
              password_confirmation: "123123",
              role: 2,
-             birthday: "01/01/2001")
+             birthday: "01/01/2001",
+             deleted: false)
 Course.create!(name: "Ruby",
                content: "Khoa hoc ruby la khoa hoc chat luong lam nghe",
                start_date: Time.now(),
@@ -49,31 +56,38 @@ Course.create!(name: "PHP",
 CourseUser.create!(course_id: 1,
                     user_id: 1,
                     join_date: Time.now(),
-                    status: 0)
+                    status: 0,
+                    deleted: false)
 CourseUser.create!(course_id: 1,
                     user_id: 2,
                     join_date: Time.now(),
-                    status: 0)
+                    status: 0,
+                    deleted: false)
 CourseUser.create!(course_id: 2,
                     user_id: 1,
                     join_date: "01/01/2018",
-                    status: 1)
+                    status: 1,
+                    deleted: false)
 CourseUser.create!(course_id: 2,
                     user_id: 2,
                     join_date: "01/01/2018",
-                    status: 1)
+                    status: 1,
+                    deleted: false)
 CourseUser.create!(course_id: 2,
                     user_id: 3,
                     join_date: "01/01/2018",
-                    status: 1)
+                    status: 1,
+                    deleted: false)
 CourseUser.create!(course_id: 2,
                     user_id: 4,
                     join_date: "01/01/2017",
-                    status: 1)
+                    status: 1,
+                    deleted: false)
 CourseUser.create!(course_id: 2,
                     user_id: 5,
                     join_date: Time.now(),
-                    status: 0)
+                    status: 0,
+                    deleted: false)
 Subject.create!(name: "git",
                 details: "Lorem Ipsum is simply dummy text of the printing and t
             ypesetting industry. Lorem Ipsum has been the industry's standard dummy
