@@ -34,38 +34,12 @@ class UsersController < ApplicationController
     end
   end
 
-  def confirm_email; end
-
-  def check_code
-    unless session[:code] || session[:user_params]
-      flash[:danger] = t ".code_expire"
-      redirect_to signup_path
-      return
-    end
-    if session[:code].to_i == code_params[:code].to_i
-      @user = User.new session[:user_params]
-      @user.save
-      flash[:info] = t ".messages_wait_active"
-      redirect_to root_url
-      session.delete(:code)
-      session.delete(:user_params)
-      create_notify(t(".notify_new_create_account"), "#", 0)
-    else
-      flash.now[:danger] = t ".code_not_confirm"
-      render :confirm_email
-    end
-  end
-
   private
 
   def user_params
     params.require(:user).permit :name, :email, :password,
       :password_confirmation, :birthday, :gender, :company, :gradution,
       :university, :address, :role
-  end
-
-  def code_params
-    params.require(:confirm).permit :code
   end
 
   def load_user
