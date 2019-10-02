@@ -1,10 +1,9 @@
 class AdminController < ApplicationController
-  before_action :require_admin
+  before_action :is_admin
 
-  def require_admin
-    unless current_user&.admin?
-      flash[:danger] = t ".not_access"
-      redirect_to root_path
-    end
+  def is_admin
+    return if current_user.admin?
+    flash[:danger] = t "edit.not_admin"
+    redirect_to notfound_path
   end
 end

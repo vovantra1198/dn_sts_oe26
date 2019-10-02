@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many :user_course_subjects, dependent: :destroy
   has_many :course_subjects, through: :user_course_subjects
 
+  after_update :processing_delete_user_course_tasks_and_user_course_subject_and_user_course
+
   enum gender: {male: 0, female: 1, other: 2}
   enum role: {trainee: 0, trainer: 1, admin: 2}
   validates :name, presence: true,
@@ -24,15 +26,8 @@ class User < ApplicationRecord
     length: {minimum: Settings.user.min_length_password}
   before_save :email_downcase
 
-  scope :load_users, ->(type) do
-    type ? where(activated: type) : where(activated: [true, false])
-  end
-
-  scope :order_by, ->{order(created_at: :desc)}
-
-  def activate
-    update_columns(activated: true, updated_at: Time.zone.now)
-  end
+  scope :order_by, ->{order(:created_at)}
+  scope :with_deleted,-> {where.not deleted: Settings.deleted_1}
   scope :with_by_course_user_course_subject, lambda {joins("left outer join course_users on users.id = course_users.user_id
                                                             left outer join courses on course_users.course_id = courses.id
                                                             left outer join course_subjects on course_subjects.course_id = courses.id")}
@@ -52,6 +47,11 @@ class User < ApplicationRecord
 
   def email_downcase
     email.downcase!
+  end
+
+  def processing_delete_user_course_tasks_and_user_course_subject_and_user_course
+    return unless self.deleted?
+    ProcessingDeleteUserCourseTasksAndUserCourseSubjectAndUserCourse.excute(self)
   end
 
 end

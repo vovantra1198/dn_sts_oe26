@@ -8,7 +8,6 @@ en:
       content: "Content"
       update: "Update"
       create_fail: "Create fail"
-
     create:
       create_success: "created success"
       not_success: "not success"
@@ -40,10 +39,14 @@ en:
       content: "Content"
       update: "Update"
     create:
+      update_success: "updated success"
       created_success: "created success"
       not_success: "not success"
+    update:
+      update_success: "updated success"
+    destroy:
       delete_success: "deleted success"
-      delete_fail: "delete Fail"
+      delete_fail: "delete fail"
   subjects:
     update:
       update_success: "Updated success"
@@ -68,9 +71,40 @@ en:
       all_tasks: "All tasks"
   admin:
     users:
+      user:
+        email: Email
+        update: Update
       index:
         title: "Users Manager"
         not_access: "You don't have access in this function"
+        new_user: "New user"
+      new:
+        new: "New user"
+      form:
+        create: Create
+      formupdate:
+        update: Update
+      content:
+        name: Name
+        email: Email
+        password: Password
+        confi: Password Confirm
+        male: Male
+        female: Female
+        other: Other
+        birthday: Birthday
+        company: Company
+        gradution: Gradution
+        university: University
+        address: Address
+        trainee: Trainee
+        trainer: Trainer
+        admin: admin
+        create: Create
+        deleted: "Deleted"
+      edit:
+        edit: Edit user
+        not_admin: "You not admin ?"
       destroy:
         delete_success: "Successfully delete user %{name}"
         delete_fail: "Failed delete user %{name}"
@@ -84,6 +118,61 @@ en:
         btn_delete: Delete
         confirm_delete: Delete user %{name}, Are you sure?
         confirm_active: Acitve user %{name}, Are you sure?
+      create:
+        created_success: "created succsess"
+      update:
+        update_success: "updated succsess"
+      destroy:
+        delete_success: "deleted succsess"
+        delete_fail: "delete fail"
+    courses:
+      form:
+        name: "Name"
+        content: "Content"
+        start_date: "Start date"
+        status: "Status"
+        archive: "Archive"
+        running: "Running"
+        finish: "finish"
+        da_nang: "Da nang"
+        ha_noi: "Ha Noi"
+        tp_hcm: "TP HCM"
+        create : "Create"
+        location: "Location"
+      formupdate:
+        name: "Name"
+        content: "Content"
+        start_date: "Start date"
+        status: "Status"
+        archive: "Archive"
+        running: "Running"
+        finish: "finish"
+        da_nang: "Da nang"
+        ha_noi: "Ha Noi"
+        tp_hcm: "TP HCM"
+        update : "Update"
+        location: "Location"
+      course:
+        status: "Status"
+        show: "Show"
+        delete: "delete"
+        update: "Update"
+      create:
+        created_success: "created succsess"
+      update:
+        update_success: "updated succsess"
+      destroy:
+        delete_success: "deleted succsess"
+        delete_fail: "delete fail"
+      edit:
+        edit: "Edit course"
+      index:
+        title: "All courses"
+        create_course: "Create course"
+      new:
+        new: "New course"
+      show:
+        subject: "Subjects"
   notification:
     one: "The form contains 1 error"
     other: "The form contains %{count} errors"
