@@ -4,7 +4,7 @@ class CreateSubjects < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :details
       t.integer :duration_default
-
+      t.boolean :deleted, default: false
       t.timestamps
     end
   end
