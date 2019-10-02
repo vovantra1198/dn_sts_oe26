@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.integer "duration"
     t.integer "order"
     t.integer "status", default: 0
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["course_id", "subject_id"], name: "index_course_subjects_on_course_id_and_subject_id", unique: true
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.integer "location", default: 0
     t.date "start_date"
     t.integer "status", default: 0
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.string "name"
     t.text "details"
     t.integer "duration_default"
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -77,6 +80,7 @@ ActiveRecord::Schema.define(version: 2019_09_30_062504) do
     t.string "title"
     t.text "content"
     t.bigint "subject_id"
+    t.boolean "deleted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_tasks_on_subject_id"

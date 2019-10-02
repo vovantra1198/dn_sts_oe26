@@ -6,7 +6,7 @@ class CreateCourseSubjects < ActiveRecord::Migration[5.2]
       t.integer :duration
       t.integer :order
       t.integer :status, default: 0
-
+      t.boolean :deleted, default: false
       t.timestamps
     end
     add_index :course_subjects, [:course_id, :subject_id], unique: true
