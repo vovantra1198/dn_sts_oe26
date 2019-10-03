@@ -1,5 +1,4 @@
 class Course < ApplicationRecord
-  attr_accessor :locations, :statuses
 
   has_many :course_users, dependent: :destroy
   has_many :users, through: :course_users
@@ -15,4 +14,7 @@ class Course < ApplicationRecord
     length: {maximum: Settings.course.max_length_name}
   validates :content, presence: true,
     length: {maximum: Settings.course.max_length_content}
+
+  scope :order_by_created_at, ->{order :created_at}
+  scope :by_deleted_false, ->{where deleted: false}
 end

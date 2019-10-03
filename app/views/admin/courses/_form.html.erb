@@ -1,0 +1,4 @@
+<%= form_for(@course, url: admin_courses_path) do |f| %>
+  <%= render "content", f: f %>
+  <%= f.submit t(".create"), class: "btn btn-primary" %>
+<% end %>
