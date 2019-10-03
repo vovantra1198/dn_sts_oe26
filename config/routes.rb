@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -15,6 +16,7 @@ Rails.application.routes.draw do
   end
   namespace :admin do
     resources :users
+    resources :courses, except: [:show]
     resources :notifications, except: :new
   end
   resources :users, except: [:index, :destroy]

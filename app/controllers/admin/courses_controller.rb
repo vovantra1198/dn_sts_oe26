@@ -1,5 +1,6 @@
 class Admin::CoursesController < ApplicationController
-  before_action :load_course, only: [:edit, :update]
+  before_action :load_course, only: [:edit, :destroy, :update]
+  after_action :message_exeption, only: :destroy
 
   def index
     @courses = Course.by_deleted_false.order_by_created_at.paginate page: params[:page], per_page: Settings.per_page
@@ -30,6 +31,16 @@ class Admin::CoursesController < ApplicationController
     end
   end
 
+  def destroy
+    if @course.update_attribute :deleted, Settings.deleted_1
+      flash[:success] = t ".delete_success", name: @course.name
+      redirect_to admin_courses_path
+    else
+      flash[:danger] = t ".delete_fail", name: @course.name
+      redirect_to admin_courses_path
+    end
+  end
+
   private
 
   def courses_param
@@ -41,5 +52,11 @@ class Admin::CoursesController < ApplicationController
     return if @course
     flash["danger"] = t "courses.notfound.notfound"
     redirect_to notfound_path
+  end
+
+  def message_exeption
+    @message = ProcessingDeleteAllUserCoursesAndCourseSubjectsAndUserCourseTask.get_message
+    return unless @message
+    flash[:danger] = @message
   end
 end
