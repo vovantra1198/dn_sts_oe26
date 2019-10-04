@@ -15,6 +15,8 @@ class CourseUser < ApplicationRecord
   scope :with_course_course_subject_subject, lambda{joins("join courses on course_users.course_id = courses.id
                                                            join course_subjects on courses.id = course_subjects.course_id
                                                            join subjects on course_subjects.subject_id = subjects.id")}
+  scope :by_user_id,-> (user_id) {where user_id: user_id}
+  scope :by_course_id,-> (course_id) {where course_id: course_id}
   private
 
     def processing_add_user_to_user_course_subject

@@ -32,6 +32,10 @@ class UserCourseTask < ApplicationRecord
   scope :by_user_id_subject_id_course_id, lambda {|user_id,subject_id, course_id| where("user_course_tasks.user_id" => user_id,
                                                                                         "user_course_tasks.course_id" => course_id,
                                                                                         "tasks.subject_id" => subject_id)}
+  scope :by_course_id,-> (course_id) {where course_id: course_id}
+
+  private
+
   def processing_count_subject
     ProcessingCourseSubject.execute(self)
   end
