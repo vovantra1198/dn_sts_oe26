@@ -31,6 +31,9 @@ gem "will_paginate", "~> 3.1.7"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "capybara", ">= 2.15"
+  gem "rspec-rails", "~> 3.5"
+  gem "factory_bot_rails"
 end
 
 group :development do
@@ -50,6 +53,10 @@ group :test do
   gem "rails-controller-testing", "1.0.2"
   gem "selenium-webdriver"
   gem "sqlite3", "1.3.13"
+  gem "database_cleaner"
+  gem "faker", "~> 2.1.0"
+  gem "launchy"
+  gem "shoulda-matchers", "~> 3.0", require: false
 end
 
 group :production do

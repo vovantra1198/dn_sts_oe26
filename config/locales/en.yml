@@ -1,4 +1,8 @@
 en:
+  errors:
+    messages:
+      blank: "Email can't be blank"
+      too_long: is too long (maximum is %{count} characters)
   tasks:
     edit:
       field_title: "Title"
