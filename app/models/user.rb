@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_many :course_subjects, through: :user_course_subjects
 
   after_update :processing_delete_user_course_tasks_and_user_course_subject_and_user_course
+  before_save :email_downcase
 
   enum gender: {male: 0, female: 1, other: 2}
   enum role: {trainee: 0, trainer: 1, admin: 2}
@@ -21,10 +22,9 @@ class User < ApplicationRecord
   validates :email, presence: true,
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :birthday, presence: true
-  has_secure_password
   validates :password, presence: true,
     length: {minimum: Settings.user.min_length_password}
-  before_save :email_downcase
+  has_secure_password
 
   scope :order_by, ->{order(:created_at)}
   scope :with_deleted,-> {where.not deleted: Settings.deleted_1}
@@ -41,7 +41,6 @@ class User < ApplicationRecord
   scope :group_by_id, lambda {group("id")}
   scope :by_user_id, lambda{|id| where("id" => id )}
   scope :by_not_user_id, lambda{|id| where.not(id: id )}
-
 
   private
 
