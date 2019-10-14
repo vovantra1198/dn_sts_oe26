@@ -1,0 +1,64 @@
+<div class="row-signup">
+  <h2> <% t ".edit" %> <%= resource_name.to_s.humanize %></h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.text_field :name, class: "form-control",
+          placeholder: t(".name") %>
+
+    <%= f.email_field :email, class: "form-control",
+      placeholder: t(".email") %>
+
+    <%= f.password_field :password, class: "form-control",
+      placeholder: t(".password") %>
+
+    <%= f.password_field :password_confirmation, class: "form-control",
+      placeholder: t(".confi") %>
+
+    <%= f.label :current_password %> <i> <%= t ".change_password"%> </i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: t(".password_current") %>
+
+    <div class="col">
+      <%= f.radio_button :gender, User.genders.key(User.genders[:male]),
+        class: "col-sm-1" %>
+      <%= t ".male" %>
+      <%= f.radio_button :gender, User.genders.key(User.genders[:female]), class: "col-sm-1" %>
+      <%= t ".female" %>
+      <%= f.radio_button :gender, User.genders.key(User.genders[:other]), class: "col-sm-1" %>
+      <%= t ".other" %>
+    </div>
+
+    <%= f.label :birthday, class: "col" %>
+    <%= f.date_field :birthday, class: "form-control" %>
+
+    <%= f.text_field :company, class: "form-control",
+      placeholder: t(".company") %>
+
+    <%= f.text_field :university, class: "form-control",
+      placeholder: t(".university") %>
+
+    <%= f.text_field :gradution, class: "form-control",
+      placeholder: t(".gradution") %>
+
+    <%= f.text_field :address, class: "form-control",
+      placeholder: t(".address") %>
+
+    <div class="col">
+      <%= f.radio_button :role, User.roles.key(User.roles[:trainee]), class: "col-sm-1" %>
+      <%= t ".trainee" %>
+      <%= f.radio_button :role, User.roles.key(User.roles[:trainer]), class: "col-sm-1" %>
+      <%= t ".trainer" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t(".update"), class: "btn btn-success" %>
+    </div>
+  <% end %>
+
+  <h3> <%= t ".cancel_account" %> </h3>
+  <p><%= t ".unhappy" %><%= button_to t(".cancel_account"),
+    registration_path(resource_name),
+    data: { confirm: t(".sure") },
+    method: :delete, class: "btn btn-success" %></p>
+  <%= link_to t(".back"), :back, class: "btn btn-success" %>
+</div>

@@ -4,7 +4,8 @@ User.create!(name:  "vo van tra",
              password_confirmation: "123123",
              role: 1,
              birthday: "01/01/2001",
-             deleted: false)
+             deleted: false,
+             confirmed_at: "01/01/2019")
 User.create!(name:  "vo van tri",
              email: "vovantri@gmail.com",
              password: "123123",

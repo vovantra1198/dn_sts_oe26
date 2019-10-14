@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto menu">
-        <% if logged_in? %>
+        <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to t(".home"), courses_path, class: "nav-link" %>
         </li>
@@ -18,21 +18,16 @@
             <ul class="dropdown-menu">
               <li><%= link_to t(".profile"), user_path(id: current_user.id) %></li>
               <li>
-                <%= link_to t(".logout"), logout_path, method: :delete %>
+                <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </li>
-          <li class="nav-item btn-menu">
-            <%= hidden_field_tag "sub_user", get_sub_user %>
-            <%= render "notifications/notification_center",
-              notifications: get_notification %>
-          </li>
         <% else %>
         <li class="nav-item btn-menu">
-          <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal"> <%= t ".login" %> </button>
+          <%= link_to t(".login"), new_user_session_path, class: "nav-link" %>
         </li>
         <li class="nav-item btn-menu">
-          <%= link_to t(".register"), signup_path, class: "nav-link" %>
+          <%= link_to t(".register"), new_user_registration_path, class: "nav-link" %>
         </li>
         <% end %>
       </ul>
