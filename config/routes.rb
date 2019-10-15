@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users, controllers: { registrations: "users/registrations" }
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
     get "/confirm_email", to: "users#confirm_email"
     post "/confirm_email", to: "users#check_code"
 
-    resources :users, only: [:new, :create]
+    # resources :users, only: [:new, :create]
     resources :notifications, only: [:new, :create, :destroy]
 
     mount ActionCable.server => "/cable"
