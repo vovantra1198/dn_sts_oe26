@@ -53,6 +53,7 @@ en:
         admin: admin
         signup: Sign up
       edit:
+        edit: "Edit"
         password_current: Password current
         change_password: (we need your current password to confirm your changes)
         name: Name
@@ -83,6 +84,9 @@ en:
       new:
         forgot_password: Forgot your password?
         send_password: "Send me reset password instructions"
+    unlocks:
+      new:
+        resend_unlock: Resend unlock instructions
   errors:
     messages:
       blank: "Email can't be blank"
@@ -163,6 +167,7 @@ en:
         email: Email
         update: Update
       index:
+        search: Search
         title: "Users Manager"
         not_access: "You don't have access in this function"
         new_user: "New user"
@@ -247,6 +252,7 @@ en:
       edit:
         edit: "Edit course"
       index:
+        search: Search
         title: "All courses"
         create_course: "Create course"
       new:

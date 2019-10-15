@@ -16,8 +16,16 @@ Rails.application.routes.draw do
     mount ActionCable.server => "/cable"
   end
   namespace :admin do
-    resources :users
-    resources :courses, except: [:show]
+    resources :users do
+      collection do
+        match "search" => "users#search", via: [:get, :post], as: :search
+      end
+    end
+    resources :courses, except: :show do
+      collection do
+        match "search" => "courses#search", via: [:get, :post], as: :search
+      end
+    end
     resources :notifications, except: :new
   end
   resources :users, except: [:index, :destroy]

@@ -1,8 +1,4 @@
 <div class="navmenu">
-  <%= form_tag("#", id: "search-form") do %>
-    <%= text_field_tag :search %>
-    <%= submit_tag t(".search"), id: "button-submit" %>
-  <% end %>
   <nav id="navbar">
     <ul class="navbar">
       <li>
@@ -18,7 +14,7 @@
         <%= link_to t(".subjects&task"), "#" %>
       </li>
       <li>
-        <%= link_to t(".logout"), logout_path, method: :delete %>
+        <%= link_to t(".logout"), destroy_user_session_path, method: :delete %>
       </li>
       <li>
         <%= link_to t(".contact"), "" %>

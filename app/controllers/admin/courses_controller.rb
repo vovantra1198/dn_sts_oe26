@@ -3,7 +3,12 @@ class Admin::CoursesController < ApplicationController
   after_action :message_exeption, only: :destroy
 
   def index
-    @courses = Course.by_deleted_false.order_by_created_at.paginate page: params[:page], per_page: Settings.per_page
+    @q = Course.ransack(params[:q])
+    @courses = if params[:q].nil?
+      Course
+    else
+      @q.result(distinct: true)
+    end.order_by_created_at.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -39,6 +44,11 @@ class Admin::CoursesController < ApplicationController
       flash[:danger] = t ".delete_fail", name: @course.name
       redirect_to admin_courses_path
     end
+  end
+
+  def search
+    index
+    render :index
   end
 
   private

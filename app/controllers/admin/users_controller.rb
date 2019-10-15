@@ -1,9 +1,14 @@
 class Admin::UsersController < AdminController
-  before_action :load_user, except: [:index, :new, :create]
+  before_action :load_user, except: [:index, :new, :create, :search]
   after_action :message_exeption, only: :destroy
 
   def index
-    @users = User.order_by.paginate page: params[:page], per_page: Settings.per_page
+    @q = User.ransack(params[:q], auth_object: set_ransack_auth_object)
+    @users = if params[:q].nil?
+      User
+    else
+      @q.result(distinct: true).includes(:tasks)
+    end.order_by.paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
@@ -35,6 +40,11 @@ class Admin::UsersController < AdminController
     end
   end
 
+  def search
+    index
+    render :index
+  end
+
   private
 
   def load_user
@@ -54,5 +64,9 @@ class Admin::UsersController < AdminController
     @message = ProcessingDeleteUserCourseTasksAndUserCourseSubjectAndUserCourse.get_message
     return unless @message
     flash[:danger] = @message
+  end
+
+  def set_ransack_auth_object
+    current_user.admin? ? :admin : nil
   end
 end
